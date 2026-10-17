@@ -1,8 +1,9 @@
 # What remains to formalize
 
-The supplied evidence archive contained no Lean files. The new `Witness.lean`
-file is a finite-graph proof candidate that must be compiled and audited on a
-machine with Lean; this plan is not a machine-checked classification proof.
+The finite witness and D8-section implication have now been compiled and
+audited on the author's Mac with Lean 4.29.0. The audit reports only standard
+Lean foundations for `d8_section_has_three_chromatic_cayley`. This plan is
+not a machine-checked classification proof.
 The manuscript's direct structural proof avoids
 Sanov's theorem and the finite structural classification assumed by the
 separate CayleyExpanded project.
@@ -22,12 +23,10 @@ positive cases. A finite-graph theorem alone is not the target.
    exponent dividing four, quaternion and dihedral models, and elementary
    abelian two-groups. Interpret E as an arbitrary F2-vector space, not only
    a finite product.
-2. D8 witness: compile and audit `KrebsSankarQ53/Witness.lean` and correct
-   any errors; it models multiplication, adjacency, the listed coloring,
-   and the five-cycle on eight vertices. This finite model needs integration
-   with the eventual general group definition.
-3. Section lifting: choose five representatives and their ten directed
-   differences; pull back the coloring and extend across left cosets.
+2. D8 witness: completed in `Witness.lean` and integrated with the general
+   group definition in `D8Group.lean`.
+3. Section lifting: completed in `CayleyCore.lean`, `CycleLift.lean`,
+   `QuotientLift.lean`, and `SubgroupLift.lean`, including finite size ≤ 10.
 4. Structural theorem: absence of a D8 section implies central involutions;
    central squares and commutators; the noncommuting-pair square identity;
    a quaternion subgroup; splitting off a central elementary abelian factor.

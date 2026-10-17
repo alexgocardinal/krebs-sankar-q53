@@ -2,8 +2,9 @@
 
 Alex Chan — Harvard University and National Bureau of Economic Research.
 
-This packet contains a manuscript, reproducible finite graph checks, and a
-first Lean checkpoint for the eight-vertex witness.
+This repository contains a manuscript, reproducible finite graph checks, and
+a Lean development for the eight-vertex witness and the section-lifting
+direction of the theorem.
 The manuscript classifies nonabelian exponent-four groups admitting a
 three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
 
@@ -11,8 +12,11 @@ three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
 
 - Human-readable proof: supplied in the manuscript.
 - Finite computational checks: reproduced on 16 October 2026.
-- Finite Lean witness source: supplied, but not compiled in the preparation
-  environment. Run the commands in `TERMINAL_MAC_START_HERE.md` on a Mac.
+- Lean witness and section-lifting direction: `lake build` completed on the
+  author's Mac with Lean 4.29.0, and `lake env lean Audit.lean` reported only
+  `propext`, `Classical.choice`, and `Quot.sound` for the section theorem.
+  The theorem covers arbitrary groups with a subgroup surjecting onto the
+  concrete D8, and yields a finite connection set of at most ten elements.
 - Complete Lean proof of this manuscript: NOT supplied and NOT claimed.
 - Publication priority: requires review; the manuscript cites overlapping work.
 
@@ -24,8 +28,9 @@ three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
 - `PROOF_AND_SCOPE.txt`: supplied mathematical proof and scope record.
 - `TERMINAL_MAC_START_HERE.md`: Mac Terminal-only walkthrough.
 - `FORMALIZATION_PLAN.md`: remaining proof work and acceptance checks.
-- `KrebsSankarQ53/Witness.lean`: concrete Cayley graph, coloring, odd-cycle
-  obstruction, and finite multiplication-table proof candidates.
+- `KrebsSankarQ53/Witness.lean`: concrete graph and finite multiplication.
+- `KrebsSankarQ53/CayleyCore.lean`, `CycleLift.lean`, `D8Group.lean`,
+  `QuotientLift.lean`, `SubgroupLift.lean`: checked coloring and lifting lemmas.
 - `KrebsSankarQ53.lean`, `Audit.lean`, `lakefile.toml`, `lean-toolchain`:
   project entry point, axiom check, and pinned Lean/Mathlib configuration.
 
@@ -43,16 +48,14 @@ three-chromatic D8 witness. This is not a proof of the infinite classification.
 
 ## Lean status and related work
 
-Lean files for the finite witness are included. Their successful compilation
-has not been independently confirmed in this preparation environment. Run
-`lake update`, `lake exe cache get`, `lake build`, and
-`lake env lean Audit.lean` on your Mac. These commands do not prove the full
-classification. The related third-party project is at
+On the author's Mac, run `lake build` and `lake env lean Audit.lean` to check
+the finite witness and the D8-section implication. The reverse implication,
+the structural dichotomy, and the quaternionic obstruction are not yet proved
+in this Lean project. The related third-party project is at
 https://github.com/tysunseven/CayleyExpanded and states a theorem conditional
 on external inputs. This packet does not redistribute that project.
 
-Author profile: https://github.com/alexgocardinal
-Suggested repository name: `krebs-sankar-q53` (not asserted to exist).
+Repository (currently private): https://github.com/alexgocardinal/krebs-sankar-q53
 
 ## Paper PDF
 
@@ -63,6 +66,5 @@ pdflatex Krebs_Sankar_Q53_Chan.tex
 pdflatex Krebs_Sankar_Q53_Chan.tex
 ```
 
-Before submission, replace the paper's pending-deposit statement with a
-verified project URL and fixed release/commit. Update proof status only after
-checking the final theorem and its dependencies.
+Before submission, re-audit the exact final theorem and update the manuscript
+if the remaining Lean proof is completed.
