@@ -1,0 +1,11 @@
+name = "KrebsSankarQ53"
+version = "0.1.0"
+defaultTargets = ["KrebsSankarQ53"]
+
+[[require]]
+name = "mathlib"
+scope = "leanprover-community"
+rev = "v4.29.0"
+
+[[lean_lib]]
+name = "KrebsSankarQ53"

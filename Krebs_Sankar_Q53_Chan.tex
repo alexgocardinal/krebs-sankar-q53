@@ -1,0 +1,251 @@
+\documentclass[11pt]{article}
+\usepackage[letterpaper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs,tabularx,array}
+\usepackage{needspace}
+\usepackage[colorlinks=true,linkcolor=black,citecolor=black,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={Three-chromatic Cayley graphs of exponent-four groups},
+  pdfauthor={Alex Chan}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}{Lemma}
+\newcommand{\out}{N^{+}}
+\newcommand{\Cay}{\operatorname{Cay}}
+\newcommand{\F}{\mathbb F}
+
+\title{Three-chromatic Cayley graphs of exponent-four groups}
+\author{Alex Chan\\[2pt]
+  \small Harvard University and National Bureau of Economic Research\\[-1pt]
+  \small \texttt{achan@hbs.edu}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We answer Question 5.3 of Krebs and Sankar. A nonabelian group of
+exponent four admits an undirected Cayley graph of chromatic number three
+if and only if it is not a direct product of the quaternion group of order
+eight and an elementary abelian two-group. The classification includes
+infinite groups, and every positive case has a connection set of at most
+ten elements.
+\end{abstract}
+
+\section{Introduction and the dihedral witness}
+
+Krebs and Sankar classified the abelian groups admitting a three-chromatic
+Cayley graph and asked for the corresponding classification among
+nonabelian groups of exponent four \cite[Question~5.3]{KrebsSankar}.
+The obstruction turns out to be precisely the quaternionic family.
+An explicit eight-vertex graph supplies all positive cases through
+sections, while a graph isomorphism reduces the negative cases to
+Payan's theorem on cubelike graphs \cite{Payan}.
+
+For a group $G$ and $S=S^{-1}\subseteq G\setminus\{1\}$, we join $x$ to
+$y$ in $\Cay(G,S)$ when $x^{-1}y\in S$. In particular, the graph need not
+be connected, as in the question under consideration. We work in ZFC.
+A \emph{section} of $G$ means a quotient $H/N$ of a subgroup $H\leq G$.
+
+\begin{theorem}\label{thm:main}
+Let $G$ be a nonabelian group in which $g^4=1$ for all $g\in G$.
+The following are equivalent:
+\begin{enumerate}
+\item $G$ admits a simple undirected Cayley graph of chromatic number three;
+\item $G$ has a section isomorphic to the dihedral group $D_8$ of order eight;
+\item $G$ is not isomorphic to $Q_8\times E$ for any elementary abelian
+two-group $E$.
+\end{enumerate}
+The group $E$ may be infinite. In (1), the connection set can be chosen to
+have at most ten elements.
+\end{theorem}
+
+Put $D_8=\langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle$ and
+$S_0=\{r^2,s,rs\}$. These are three involutions. With vertices ordered as
+$1,r,r^2,r^3,s,rs,r^2s,r^3s$, respectively, the assignment
+\[
+             (0,0,1,2,1,1,2,0)
+\]
+is a proper three-coloring of $\Cay(D_8,S_0)$. The vertices
+$1,r^2,r^2s,r,rs,1$ form a five-cycle. Hence the graph has chromatic
+number three; it is the eight-vertex Wagner graph.
+
+\Needspace{10\baselineskip}
+\begin{lemma}\label{lem:lift}
+If $G$ has a $D_8$ section, it admits a three-chromatic Cayley graph with
+at most ten elements in its connection set.
+\end{lemma}
+\begin{proof}
+Let $\pi:H\twoheadrightarrow D_8$ be the quotient map and let
+$q_0,q_1,q_2,q_3,q_4,q_5=q_0$ be the displayed five-cycle. Choose
+$v_i\in\pi^{-1}(q_i)$ for $0\leq i<5$, set $v_5=v_0$, and put
+\[
+ S=\{v_i^{-1}v_{i+1},\ (v_i^{-1}v_{i+1})^{-1}:0\leq i<5\}.
+\]
+Its image under $\pi$ lies in $S_0$, so $S=S^{-1}$ and $1\notin S$.
+The three-coloring of the dihedral graph pulls back to $\Cay(H,S)$,
+while $v_0,v_1,v_2,v_3,v_4,v_0$ is an odd cycle. Regard $S$ as a subset
+of $G$. Every component of $\Cay(G,S)$ lies in a left coset of $H$;
+translate the coloring across the cosets. Thus $\chi(\Cay(G,S))=3$.
+\end{proof}
+
+\section{A structural dichotomy}
+
+We give a direct argument without a finiteness assumption.
+
+\begin{lemma}\label{lem:structure}
+If a nonabelian group $G$ of exponent four has no $D_8$ section, then
+$G\cong Q_8\times E$ for an elementary abelian two-group $E$.
+\end{lemma}
+\begin{proof}
+Two noncommuting involutions generate $D_8$: their product has order
+four and they act as two reflections. Hence all involutions of $G$
+commute. The elements of square one form a normal elementary abelian
+subgroup $T$.
+
+We first show that every involution is central. Otherwise, choose
+$t\in T$ and $x\in G$ such that $t'=xtx^{-1}\ne t$. Necessarily $x$
+has order four. Conjugation by $x$ has order at most two on $T$, since
+$x^2\in T$ and $T$ is abelian; it interchanges $t$ and $t'$. Thus
+$A=\langle t,t'\rangle\cong C_2^2$ is normal in $H=\langle A,x\rangle$.
+Write $w=x^2$. If $w\in A$, it is the unique nonidentity element of
+$A$ fixed by the swap, namely $tt'$. Then $H$ has order eight and is
+$D_8$. If $w\notin A$, the group $H$ has order sixteen and
+$H/\langle w\rangle\cong A\rtimes C_2\cong D_8$. Both alternatives
+contradict the hypothesis.
+
+All squares are therefore central. Quotienting by the central subgroup
+generated by squares produces a group of exponent two, hence an abelian
+group. Thus $G$ has nilpotence class at most two. For all $x,y\in G$,
+the commutator $[x,y]$ is central and
+$[x,y]^2=[x^2,y]=1$.
+
+Take noncommuting $x,y$ and write
+$a=x^2$, $b=y^2$, $c=[x,y]$, $C=\langle a,b,c\rangle$,
+$H=\langle x,y\rangle$. Here $C$ is a central elementary abelian
+two-group, $c\ne1$, and $H/C\cong C_2^2$: the cosets $xC$ and $yC$
+are nontrivial and distinct, since otherwise $x$ and $y$ would
+commute. If $a\ne c$, there is a linear functional
+$\ell:C\to C_2$ with $\ell(c)=1$ and $\ell(a)=0$; the same holds
+with $b$ in place of $a$ if $b\ne c$. The quotient
+$H/\ker\ell$ has order eight, nontrivial commutator, and a
+noncentral involution (the image of $x$ or $y$). It is $D_8$.
+Consequently every noncommuting pair satisfies
+\begin{equation}\label{eq:pairs}
+                     x^2=y^2=[x,y]\ne1.
+\end{equation}
+
+Choose noncommuting $i,j$ and set $z=i^2=j^2=[i,j]$.
+Equation~\eqref{eq:pairs} gives
+$K=\langle i,j\rangle\cong Q_8$. For every $g\in G$, each of
+$[i,g]$ and $[j,g]$ is either $1$ or $z$. Conjugation by $g$ therefore
+acts on $K$ by independent sign changes of $i$ and $j$; all four such
+automorphisms are inner in $K$. Hence $G=K C_G(K)$.
+If $h\in C_G(K)$, the pair $ih,j$ does not commute. Applying
+\eqref{eq:pairs} yields $(ih)^2=z=i^2$, so $h^2=1$.
+Thus $C_G(K)$ is elementary abelian (indeed central in $G$), and
+$K\cap C_G(K)=\langle z\rangle$. Choose a vector-space complement
+$E$ to $\langle z\rangle$ in $C_G(K)$. It follows that
+$G=K\times E\cong Q_8\times E$.
+\end{proof}
+
+\Needspace{8\baselineskip}
+\section{The quaternionic obstruction}
+
+The following graph isomorphism explains the exceptional family.
+
+\begin{lemma}\label{lem:cubelike}
+Every undirected Cayley graph on $Q_8\times E$ is isomorphic to a
+Cayley graph on the elementary abelian two-group $\F_2^3\times E$.
+\end{lemma}
+\begin{proof}
+Write $z=-1\in Q_8$, and choose representatives
+$t(00)=1$, $t(10)=i$, $t(01)=j$, $t(11)=k$ of
+$Q_8/\langle z\rangle\cong\F_2^2$. The bijection on vertices is
+\[
+          \phi:(z^\epsilon t(u),e)\longmapsto(u,\epsilon,e).
+\]
+Let $S=S^{-1}$ be a connection set and put $T=\phi(S)$.
+For a noncentral quaternion $q$, we have $q^{-1}=zq$; hence
+$(q,e)\in S$ if and only if $(zq,e)\in S$.
+If two vertices have different $u$ coordinates, the quaternion part
+of their difference has quotient coordinate $u+v$, while its sign
+may be modified by the multiplication cocycle. Membership in $S$
+ignores that sign. If they have the same $u$ coordinate, the
+quaternion difference is exactly $z^{\epsilon+\eta}$.
+Thus two vertices are adjacent precisely when the sum of their
+images under $\phi$ lies in $T$, proving the claim.
+\end{proof}
+
+Payan's theorem says that a finite cubelike graph cannot have
+chromatic number three \cite{Payan}; see also
+\cite[Theorem~1.1]{KrebsSankar}. For arbitrary $E$, suppose a
+graph in Lemma~\ref{lem:cubelike} is three-chromatic. It has a
+proper three-coloring and an odd cycle. The finitely many $E$
+coordinates on the cycle span a finite subgroup $E_0\leq E$.
+Restricting both the coloring and the connection set to
+$Q_8\times E_0$ produces a finite, nonbipartite, three-colorable
+cubelike graph, contradicting Payan. Combining this with
+Lemmas~\ref{lem:lift} and \ref{lem:structure} proves
+Theorem~\ref{thm:main}.
+
+\section{Computational verification and supporting files}
+
+The accompanying packet includes the Python
+script \texttt{verify\_small.py}. It checks the eight-vertex dihedral witness
+and the quaternion-to-cubelike coordinate correspondence on inverse orbits
+for $Q_8\times C_2^r$, $0\leq r\leq3$. It also enumerates all inverse-closed
+connection sets for $r=0,1$. Of the $16$ sets for $Q_8$, $8$ give bipartite
+graphs and $8$ give graphs that are not three-colorable. Of the $512$ sets for
+$Q_8\times C_2$, the corresponding counts are $113$ and $399$. These finite
+checks support the constructions; the proof of Theorem~\ref{thm:main} is the
+argument above.
+
+The author's GitHub profile is
+\url{https://github.com/alexgocardinal}.
+The supporting packet is prepared for deposit through that account. A
+project-specific repository and an immutable release or commit reference
+should be supplied before submission. At the preparation of this revision,
+the packet contains no complete Lean formalization of Theorem~\ref{thm:main};
+no claim of full machine verification is made. The separate development
+\cite{CayleyExpanded} proves a conditional section criterion. Its successful
+compilation would not, by itself, certify every assertion of the present
+manuscript.
+
+\medskip\noindent
+\textbf{Prior work.}
+Goldstone and Weld characterized the nonabelian graphically abelian
+groups as $Q_8\times E$ \cite{GoldstoneWeld}. A public Lean development
+\cite{CayleyExpanded} states a related $D_8$-section criterion conditional
+on three mathematical inputs, including a finite no-$D_8$ structural
+classification, and contains the same concrete dihedral witness.
+The present proof gives the structural argument directly for arbitrary
+groups, without the finite classification or a local-finiteness theorem.
+The connection sets in Theorem~\ref{thm:main} need not generate the
+ambient group; the connected version is a separate question.
+
+\clearpage
+\begin{thebibliography}{9}
+\bibitem{KrebsSankar}
+M. Krebs and M. Sankar,
+\emph{Abelian groups without $3$-chromatic Cayley graphs},
+J. Combin. Theory Ser. B \textbf{179} (2026), 205--218.
+\href{https://doi.org/10.1016/j.jctb.2026.03.004}{doi:10.1016/j.jctb.2026.03.004};
+\href{https://arxiv.org/abs/2410.11028}{arXiv:2410.11028v2}.
+
+\bibitem{Payan}
+C. Payan, \emph{On the chromatic number of cube-like graphs},
+Discrete Math. \textbf{103} (1992), 271--277.
+\href{https://doi.org/10.1016/0012-365X(92)90319-B}{doi:10.1016/0012-365X(92)90319-B}.
+
+\bibitem{GoldstoneWeld}
+R. Goldstone and K. Weld, \emph{Graphically abelian groups},
+Discrete Math. \textbf{310} (2010), 2806--2810.
+
+\bibitem{CayleyExpanded}
+\emph{CayleyExpanded: Lean 4 formalization of a section criterion
+for three-chromatic Cayley graphs of exponent-four groups},
+public repository, \url{https://github.com/tysunseven/CayleyExpanded}
+(accessed October 2026).
+\end{thebibliography}
+
+\end{document}
