@@ -34,3 +34,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.involution_reflects_product
 #check KrebsSankarQ53.involution_reflects_product_right
 #print axioms KrebsSankarQ53.involution_reflects_product_right
+#check KrebsSankarQ53.noncommuting_involutions_rotation_order_four
+#print axioms KrebsSankarQ53.noncommuting_involutions_rotation_order_four

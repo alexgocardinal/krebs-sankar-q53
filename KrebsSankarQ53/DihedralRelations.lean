@@ -27,4 +27,32 @@ theorem involution_reflects_product_right {G : Type*} [Group G]
     _ = b * a := by rw [hb]; simp
     _ = (a * b)⁻¹ := by rw [mul_inv_rev, involution_inv hb, involution_inv ha]
 
+/-- The product is a genuine fourfold rotation when the involutions do not commute. -/
+theorem noncommuting_involutions_rotation_order_four
+    {G : Type*} [Group G] (hG : ExponentFour G)
+    {a b : G} (ha : a * a = 1) (hb : b * b = 1)
+    (hne : a * b ≠ b * a) : orderOf (a * b) = 4 := by
+  obtain ⟨h4, h2⟩ := noncommuting_involutions_product_order_four hG ha hb hne
+  apply (orderOf_eq_iff (by decide : 0 < 4)).2
+  refine ⟨h4, ?_⟩
+  intro m hm hpos hpow
+  have hm_cases : m = 1 ∨ m = 2 ∨ m = 3 := by omega
+  rcases hm_cases with h | h | h
+  · subst m
+    have ht : a * b = 1 := by simpa using hpow
+    apply h2
+    rw [ht]
+    simp
+  · subst m
+    exact h2 hpow
+  · subst m
+    have ht : a * b = 1 := by
+      calc
+        a * b = (a * b) ^ 3 * (a * b) := by rw [hpow]; simp
+        _ = (a * b) ^ 4 := (pow_succ (a * b) 3).symm
+        _ = 1 := h4
+    apply h2
+    rw [ht]
+    simp
+
 end KrebsSankarQ53
