@@ -26,7 +26,6 @@ three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
 - `verify_small.py`: standard-library Python checks supplied in the evidence.
 - `finite_verification.json`: output reproduced from that script.
 - `PROOF_AND_SCOPE.txt`: supplied mathematical proof and scope record.
-- `TERMINAL_MAC_START_HERE.md`: Mac Terminal-only walkthrough.
 - `FORMALIZATION_PLAN.md`: remaining proof work and acceptance checks.
 - `KrebsSankarQ53/Witness.lean`: concrete graph and finite multiplication.
 - `KrebsSankarQ53/CayleyCore.lean`, `CycleLift.lean`, `D8Group.lean`,
