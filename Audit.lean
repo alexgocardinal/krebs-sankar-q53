@@ -26,3 +26,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.square_is_involution
 #check KrebsSankarQ53.noncommuting_involutions_product_order_four
 #print axioms KrebsSankarQ53.noncommuting_involutions_product_order_four
+#check KrebsSankarQ53.conjugate_involution
+#print axioms KrebsSankarQ53.conjugate_involution
+#check KrebsSankarQ53.involutionSubgroup
+#print axioms KrebsSankarQ53.involutionSubgroup

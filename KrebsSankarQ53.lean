@@ -5,6 +5,7 @@ import KrebsSankarQ53.D8Group
 import KrebsSankarQ53.QuotientLift
 import KrebsSankarQ53.SubgroupLift
 import KrebsSankarQ53.ExponentFourCore
+import KrebsSankarQ53.InvolutionSubgroup
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
