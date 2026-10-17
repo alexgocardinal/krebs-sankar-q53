@@ -12,3 +12,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.cayleyColor_pullback
 #check KrebsSankarQ53.no_two_of_five_cycle
 #print axioms KrebsSankarQ53.no_two_of_five_cycle
+#check KrebsSankarQ53.fiveCycle_lift
+#print axioms KrebsSankarQ53.fiveCycle_lift
