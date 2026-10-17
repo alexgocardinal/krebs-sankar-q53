@@ -55,4 +55,13 @@ theorem noncommuting_involutions_rotation_order_four
     rw [ht]
     simp
 
+/-- The four rotations form a subgroup with exactly four elements. -/
+theorem noncommuting_involutions_rotation_subgroup_card
+    {G : Type*} [Group G] (hG : ExponentFour G)
+    {a b : G} (ha : a * a = 1) (hb : b * b = 1)
+    (hne : a * b ≠ b * a) :
+    Nat.card (Subgroup.zpowers (a * b)) = 4 := by
+  rw [Nat.card_zpowers]
+  exact noncommuting_involutions_rotation_order_four hG ha hb hne
+
 end KrebsSankarQ53
