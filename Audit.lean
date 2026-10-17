@@ -30,3 +30,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.conjugate_involution
 #check KrebsSankarQ53.involutionSubgroup
 #print axioms KrebsSankarQ53.involutionSubgroup
+#check KrebsSankarQ53.involution_reflects_product
+#print axioms KrebsSankarQ53.involution_reflects_product
+#check KrebsSankarQ53.involution_reflects_product_right
+#print axioms KrebsSankarQ53.involution_reflects_product_right
