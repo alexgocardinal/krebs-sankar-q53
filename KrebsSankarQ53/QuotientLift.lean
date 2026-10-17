@@ -19,7 +19,8 @@ private theorem difference_mem_of_adj {D : Type*} [Group D]
 Cayley witness in the source group. -/
 theorem d8_quotient_has_three_chromatic_cayley
     {H : Type*} [Group H] (f : H →* D8) (hf : Function.Surjective f) :
-    ∃ S : Set H, (∃ c : H → Fin 3, CayleyProperColoring S c) ∧
+    ∃ S : Set H, S.Finite ∧ S.ncard ≤ 10 ∧
+      (∃ c : H → Fin 3, CayleyProperColoring S c) ∧
       ¬ ∃ c : H → Fin 2, CayleyProperColoring S c := by
   let v₀ : H := Classical.choose (hf ⟨0⟩)
   let v₁ : H := Classical.choose (hf ⟨2⟩)
@@ -62,6 +63,8 @@ theorem d8_quotient_has_three_chromatic_cayley
       (fun _ ht => d8Connection_inv_mem ht)
       v₀ v₁ v₂ v₃ v₄ hsteps with ⟨hcolor, hnotwo⟩
   exact ⟨fiveCycleConnection v₀ v₁ v₂ v₃ v₄,
+    (fiveCycleConnection_finite_card_le_ten v₀ v₁ v₂ v₃ v₄).1,
+    (fiveCycleConnection_finite_card_le_ten v₀ v₁ v₂ v₃ v₄).2,
     ⟨(fun x => threeColor (f x).val), hcolor⟩, hnotwo⟩
 
 end KrebsSankarQ53

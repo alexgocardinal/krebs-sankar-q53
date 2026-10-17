@@ -33,6 +33,34 @@ theorem fiveCycleConnection_inv_mem (v₀ v₁ v₂ v₃ v₄ : G) {s : G}
     simpa using hs
   · exact Or.inl hs
 
+/-- The connection set is drawn from a list of five steps and five inverses. -/
+theorem fiveCycleConnection_finite_card_le_ten (v₀ v₁ v₂ v₃ v₄ : G) :
+    (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).Finite ∧
+      (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).ncard ≤ 10 := by
+  classical
+  let steps := fiveCycleSteps v₀ v₁ v₂ v₃ v₄
+  let ten := steps ++ steps.map (fun s => s⁻¹)
+  have hsubset : fiveCycleConnection v₀ v₁ v₂ v₃ v₄ ⊆
+      (ten.toFinset : Set G) := by
+    intro s hs
+    change s ∈ steps ∨ s⁻¹ ∈ steps at hs
+    change s ∈ ten.toFinset
+    rw [List.mem_toFinset]
+    apply List.mem_append.mpr
+    rcases hs with hs | hs
+    · exact Or.inl hs
+    · right
+      exact List.mem_map.mpr ⟨s⁻¹, hs, by simp⟩
+  constructor
+  · exact (Finset.finite_toSet _).subset hsubset
+  · calc
+      (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).ncard ≤
+          (ten.toFinset : Set G).ncard :=
+        Set.ncard_le_ncard hsubset (Finset.finite_toSet _)
+      _ = ten.toFinset.card := Set.ncard_coe_finset ten.toFinset
+      _ ≤ ten.length := List.toFinset_card_le ten
+      _ = 10 := by simp [ten, steps, fiveCycleSteps]
+
 theorem fiveCycleConnection_edges (v₀ v₁ v₂ v₃ v₄ : G) :
     rightCayleyAdj (fiveCycleConnection v₀ v₁ v₂ v₃ v₄) v₀ v₁ ∧
     rightCayleyAdj (fiveCycleConnection v₀ v₁ v₂ v₃ v₄) v₁ v₂ ∧

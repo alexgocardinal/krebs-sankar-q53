@@ -60,6 +60,20 @@ private theorem cosetPart_mul (H : Subgroup G) (g : G) (s : H) :
 def subgroupConnection (H : Subgroup G) (S : Set H) : Set G :=
   {s | ∃ t : H, t ∈ S ∧ t.val = s}
 
+theorem subgroupConnection_eq_image (H : Subgroup G) (S : Set H) :
+    subgroupConnection H S = (Subtype.val '' S) := by
+  ext g
+  constructor
+  · rintro ⟨t, ht, rfl⟩
+    exact ⟨t, ht, rfl⟩
+  · rintro ⟨t, ht, rfl⟩
+    exact ⟨t, ht, rfl⟩
+
+theorem subgroupConnection_ncard (H : Subgroup G) (S : Set H) :
+    (subgroupConnection H S).ncard = S.ncard := by
+  rw [subgroupConnection_eq_image]
+  exact Set.ncard_image_of_injective S (fun a b h => Subtype.ext h)
+
 /-- A proper coloring extends across the left cosets. -/
 theorem subgroup_color_extend (H : Subgroup G) (S : Set H)
     (n : Nat) (c : H → Fin n) (hc : CayleyProperColoring S c) :
@@ -88,11 +102,19 @@ theorem subgroup_no_two_extend (H : Subgroup G) (S : Set H)
 /-- The quotient result extends to a dihedral section of the ambient group. -/
 theorem d8_section_has_three_chromatic_cayley
     (H : Subgroup G) (f : H →* D8) (hf : Function.Surjective f) :
-    ∃ S : Set G, (∃ c : G → Fin 3, CayleyProperColoring S c) ∧
+    ∃ S : Set G, S.Finite ∧ S.ncard ≤ 10 ∧
+      (∃ c : G → Fin 3, CayleyProperColoring S c) ∧
       ¬ ∃ c : G → Fin 2, CayleyProperColoring S c := by
   rcases d8_quotient_has_three_chromatic_cayley f hf with
-    ⟨S, ⟨c, hc⟩, hn⟩
+    ⟨S, hfinite, hcard, ⟨c, hc⟩, hn⟩
+  have hfiniteG : (subgroupConnection H S).Finite := by
+    rw [subgroupConnection_eq_image]
+    exact hfinite.image Subtype.val
+  have hcardG : (subgroupConnection H S).ncard ≤ 10 := by
+    rw [subgroupConnection_ncard]
+    exact hcard
   exact ⟨subgroupConnection H S,
+    hfiniteG, hcardG,
     subgroup_color_extend H S 3 c hc, subgroup_no_two_extend H S hn⟩
 
 end KrebsSankarQ53
