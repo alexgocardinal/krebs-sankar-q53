@@ -20,3 +20,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.d8_fiveCycle_edges
 #check KrebsSankarQ53.d8_quotient_has_three_chromatic_cayley
 #print axioms KrebsSankarQ53.d8_quotient_has_three_chromatic_cayley
+#check KrebsSankarQ53.d8_section_has_three_chromatic_cayley
+#print axioms KrebsSankarQ53.d8_section_has_three_chromatic_cayley
