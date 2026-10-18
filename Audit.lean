@@ -64,3 +64,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.rotation_reflection_coset_disjoint
 #check KrebsSankarQ53.rotation_reflection_coset_injective
 #print axioms KrebsSankarQ53.rotation_reflection_coset_injective
+#check KrebsSankarQ53.involution_conjugates_rotation_mem
+#print axioms KrebsSankarQ53.involution_conjugates_rotation_mem
+#check KrebsSankarQ53.dihedralNormalFormSubgroup
+#print axioms KrebsSankarQ53.dihedralNormalFormSubgroup
