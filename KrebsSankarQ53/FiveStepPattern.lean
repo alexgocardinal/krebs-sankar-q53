@@ -71,4 +71,42 @@ theorem fiveStepConnection_finite_card_le_five
     (fiveStepAnchor b c) b c
     (fiveStepAnchor_involution hG b c) (fiveStep_pattern b c)
 
+/-- The five-step construction lifts a three-coloring while its odd closed
+walk rules out two colors. The image-membership hypotheses will be supplied
+by the explicit D8 quotient in the next theorem. -/
+theorem fiveStep_lift {D : Type*} [Group D]
+    (hG : ExponentFour G) (f : G →* D)
+    (T : Set D) (color : D → Fin 3)
+    (hcolor : CayleyProperColoring T color)
+    (hT : ∀ t ∈ T, t⁻¹ ∈ T)
+    (b c : G) (ha : f (fiveStepAnchor b c) ∈ T)
+    (hb : f b ∈ T) (hc : f c ∈ T) :
+    ∃ S : Set G, S.Finite ∧ S.ncard ≤ 5 ∧
+      (∃ d : G → Fin 3, CayleyProperColoring S d) ∧
+      ¬ ∃ d : G → Fin 2, CayleyProperColoring S d := by
+  let a := fiveStepAnchor b c
+  let v₀ : G := 1
+  let v₁ : G := a
+  let v₂ : G := a * b
+  let v₃ : G := a * b * c
+  let v₄ : G := a * b * c * b
+  have hsteps : ∀ s ∈ fiveCycleSteps v₀ v₁ v₂ v₃ v₄, f s ∈ T := by
+    intro s hs
+    change s ∈ fiveCycleSteps 1 (fiveStepAnchor b c)
+      (fiveStepAnchor b c * b) (fiveStepAnchor b c * b * c)
+      (fiveStepAnchor b c * b * c * b) at hs
+    rw [fiveStep_pattern b c] at hs
+    simp only [List.mem_cons, List.not_mem_nil, or_false] at hs
+    rcases hs with rfl | rfl | rfl | rfl | rfl
+    · exact ha
+    · exact hb
+    · exact hc
+    · exact hb
+    · exact hc
+  rcases fiveStepConnection_finite_card_le_five hG b c with ⟨hfinite, hcard⟩
+  rcases fiveCycle_lift f T color hcolor hT v₀ v₁ v₂ v₃ v₄ hsteps with
+    ⟨hproper, hnotwo⟩
+  exact ⟨fiveCycleConnection v₀ v₁ v₂ v₃ v₄,
+    hfinite, hcard, ⟨fun x => color (f x), hproper⟩, hnotwo⟩
+
 end KrebsSankarQ53
