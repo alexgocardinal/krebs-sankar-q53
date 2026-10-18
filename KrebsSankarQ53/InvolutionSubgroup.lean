@@ -42,4 +42,21 @@ def involutionSubgroup {G : Type*} [Group G]
     rw [involution_inv ha]
     exact ha
 
+/-- Conjugation preserves membership in the subgroup of involutions.
+This is the concrete normality statement used in the structural argument. -/
+theorem involutionSubgroup_conj_mem {G : Type*} [Group G]
+    (hcomm : ∀ a b : G, a * a = 1 → b * b = 1 → a * b = b * a)
+    (g : G) (x : involutionSubgroup hcomm) :
+    g * (x : G) * g⁻¹ ∈ involutionSubgroup hcomm := by
+  change (g * (x : G) * g⁻¹) * (g * (x : G) * g⁻¹) = 1
+  exact conjugate_involution x.property
+
+/-- The subgroup of involutions is abelian when all involutions commute. -/
+theorem involutionSubgroup_mul_comm {G : Type*} [Group G]
+    (hcomm : ∀ a b : G, a * a = 1 → b * b = 1 → a * b = b * a)
+    (x y : involutionSubgroup hcomm) : x * y = y * x := by
+  apply Subtype.ext
+  change (x : G) * (y : G) = (y : G) * (x : G)
+  exact hcomm (x : G) (y : G) x.property y.property
+
 end KrebsSankarQ53
