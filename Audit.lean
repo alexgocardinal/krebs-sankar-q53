@@ -24,6 +24,12 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.fiveStepConnection_finite_card_le_five
 #check KrebsSankarQ53.fiveStep_lift
 #print axioms KrebsSankarQ53.fiveStep_lift
+#check KrebsSankarQ53.d8_fiveStep_membership
+#print axioms KrebsSankarQ53.d8_fiveStep_membership
+#check KrebsSankarQ53.d8_quotient_has_three_chromatic_cayley_five
+#print axioms KrebsSankarQ53.d8_quotient_has_three_chromatic_cayley_five
+#check KrebsSankarQ53.d8_section_has_three_chromatic_cayley_five
+#print axioms KrebsSankarQ53.d8_section_has_three_chromatic_cayley_five
 #check KrebsSankarQ53.d8_threeColor_proper
 #print axioms KrebsSankarQ53.d8_threeColor_proper
 #check KrebsSankarQ53.d8_fiveCycle_edges
