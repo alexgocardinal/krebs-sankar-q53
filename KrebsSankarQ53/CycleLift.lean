@@ -61,6 +61,63 @@ theorem fiveCycleConnection_finite_card_le_ten (v₀ v₁ v₂ v₃ v₄ : G) :
       _ ≤ ten.length := List.toFinset_card_le ten
       _ = 10 := by simp [ten, steps, fiveCycleSteps]
 
+/-- A five-step walk whose differences are `a,b,c,b,c` needs at most five
+undirected generators when `a` is an involution. -/
+theorem fiveCycleConnection_finite_card_le_five_of_step_pattern
+    (v₀ v₁ v₂ v₃ v₄ a b c : G)
+    (ha : a * a = 1)
+    (hsteps : fiveCycleSteps v₀ v₁ v₂ v₃ v₄ = [a, b, c, b, c]) :
+    (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).Finite ∧
+      (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).ncard ≤ 5 := by
+  classical
+  let five : List G := [a, b, b⁻¹, c, c⁻¹]
+  have ha_inv : a⁻¹ = a := by
+    calc
+      a⁻¹ = a⁻¹ * (a * a) := by rw [ha]; simp
+      _ = (a⁻¹ * a) * a := by rw [mul_assoc]
+      _ = a := by simp
+  have hsubset : fiveCycleConnection v₀ v₁ v₂ v₃ v₄ ⊆
+      (five.toFinset : Set G) := by
+    intro s hs
+    change s ∈ fiveCycleSteps v₀ v₁ v₂ v₃ v₄ ∨
+      s⁻¹ ∈ fiveCycleSteps v₀ v₁ v₂ v₃ v₄ at hs
+    rw [hsteps] at hs
+    have hcases : s = a ∨ s = b ∨ s = c ∨
+        s⁻¹ = a ∨ s⁻¹ = b ∨ s⁻¹ = c := by
+      simp only [List.mem_cons, List.not_mem_nil, or_false] at hs
+      tauto
+    change s ∈ five.toFinset
+    rw [List.mem_toFinset]
+    rcases hcases with h | h | h | h | h | h
+    · simp [five, h]
+    · simp [five, h]
+    · simp [five, h]
+    · have hs_a : s = a := by
+        calc
+          s = (s⁻¹)⁻¹ := (inv_inv s).symm
+          _ = a⁻¹ := congrArg Inv.inv h
+          _ = a := ha_inv
+      simp [five, hs_a]
+    · have hs_b : s = b⁻¹ := by
+        calc
+          s = (s⁻¹)⁻¹ := (inv_inv s).symm
+          _ = b⁻¹ := congrArg Inv.inv h
+      simp [five, hs_b]
+    · have hs_c : s = c⁻¹ := by
+        calc
+          s = (s⁻¹)⁻¹ := (inv_inv s).symm
+          _ = c⁻¹ := congrArg Inv.inv h
+      simp [five, hs_c]
+  constructor
+  · exact (Finset.finite_toSet _).subset hsubset
+  · calc
+      (fiveCycleConnection v₀ v₁ v₂ v₃ v₄).ncard ≤
+          (five.toFinset : Set G).ncard :=
+        Set.ncard_le_ncard hsubset (Finset.finite_toSet _)
+      _ = five.toFinset.card := Set.ncard_coe_finset five.toFinset
+      _ ≤ five.length := List.toFinset_card_le five
+      _ = 5 := by simp [five]
+
 theorem fiveCycleConnection_edges (v₀ v₁ v₂ v₃ v₄ : G) :
     rightCayleyAdj (fiveCycleConnection v₀ v₁ v₂ v₃ v₄) v₀ v₁ ∧
     rightCayleyAdj (fiveCycleConnection v₀ v₁ v₂ v₃ v₄) v₁ v₂ ∧

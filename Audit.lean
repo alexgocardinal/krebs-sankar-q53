@@ -14,6 +14,8 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_two_of_five_cycle
 #check KrebsSankarQ53.fiveCycle_lift
 #print axioms KrebsSankarQ53.fiveCycle_lift
+#check KrebsSankarQ53.fiveCycleConnection_finite_card_le_five_of_step_pattern
+#print axioms KrebsSankarQ53.fiveCycleConnection_finite_card_le_five_of_step_pattern
 #check KrebsSankarQ53.d8_threeColor_proper
 #print axioms KrebsSankarQ53.d8_threeColor_proper
 #check KrebsSankarQ53.d8_fiveCycle_edges
