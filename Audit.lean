@@ -228,3 +228,12 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_pair_product_square
 #check KrebsSankarQ53.pair_core_mem_closure
 #print axioms KrebsSankarQ53.pair_core_mem_closure
+#check KrebsSankarQ53.pairCentralSubgroup
+#check KrebsSankarQ53.pairCentralSubgroup_le_pair_closure
+#print axioms KrebsSankarQ53.pairCentralSubgroup_le_pair_closure
+#check KrebsSankarQ53.no_d8_section_pairCentralSubgroup_le_involutions
+#print axioms KrebsSankarQ53.no_d8_section_pairCentralSubgroup_le_involutions
+#check KrebsSankarQ53.no_d8_section_pairCentralSubgroup_square_one
+#print axioms KrebsSankarQ53.no_d8_section_pairCentralSubgroup_square_one
+#check KrebsSankarQ53.no_d8_section_pairCentralSubgroup_central
+#print axioms KrebsSankarQ53.no_d8_section_pairCentralSubgroup_central
