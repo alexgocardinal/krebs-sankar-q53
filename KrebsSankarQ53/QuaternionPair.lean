@@ -157,17 +157,10 @@ theorem q8PairHom_injective {G : Type*} [Group G] (i j : G)
   · exact False.elim (q8Word_cross_ne i j hne b a he.symm)
   · exact congrArg QuaternionGroup.xa (q8Power_injective i ho (mul_left_cancel he))
 
-/-- Every noncommuting pair generates a copy of the standard Q8. -/
-theorem no_d8_section_contains_quaternion
-    {G : Type*} [Group G] (hG : ExponentFour G)
-    (hno : ¬ HasD8Section G) (i j : G) (hne : i * j ≠ j * i) :
-    ∃ f : QuaternionGroup 2 →* G, Function.Injective f ∧
-      f.range = Subgroup.closure ({i, j} : Set G) := by
-  have hp := no_d8_section_noncommuting_pair_square_identity hG hno i j hne
-  have ho : orderOf i = 4 := order_four_of_fourth_one_square_ne_one (hG i) hp.2.2.2
-  have hc := no_d8_section_pair_conjugation hG hno i j hne
-  let f := q8PairHom i j ho hp.1.symm hc
-  refine ⟨f, q8PairHom_injective i j ho hp.1.symm hc hne, ?_⟩
+theorem q8PairHom_range {G : Type*} [Group G] (i j : G)
+    (ho : orderOf i = 4) (hs : j ^ 2 = i ^ 2) (hc : j * i * j⁻¹ = i⁻¹) :
+    (q8PairHom i j ho hs hc).range = Subgroup.closure ({i, j} : Set G) := by
+  let f := q8PairHom i j ho hs hc
   let H : Subgroup G := Subgroup.closure ({i, j} : Set G)
   have hi : i ∈ H := Subgroup.subset_closure (by simp)
   have hj : j ∈ H := Subgroup.subset_closure (by simp)
@@ -182,5 +175,18 @@ theorem no_d8_section_contains_quaternion
     rcases hg' with rfl | rfl
     · exact ⟨QuaternionGroup.a 1, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
     · exact ⟨QuaternionGroup.xa 0, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
+
+/-- Every noncommuting pair generates a copy of the standard Q8. -/
+theorem no_d8_section_contains_quaternion
+    {G : Type*} [Group G] (hG : ExponentFour G)
+    (hno : ¬ HasD8Section G) (i j : G) (hne : i * j ≠ j * i) :
+    ∃ f : QuaternionGroup 2 →* G, Function.Injective f ∧
+      f.range = Subgroup.closure ({i, j} : Set G) := by
+  have hp := no_d8_section_noncommuting_pair_square_identity hG hno i j hne
+  have ho : orderOf i = 4 := order_four_of_fourth_one_square_ne_one (hG i) hp.2.2.2
+  have hc := no_d8_section_pair_conjugation hG hno i j hne
+  exact ⟨q8PairHom i j ho hp.1.symm hc,
+    q8PairHom_injective i j ho hp.1.symm hc hne,
+    q8PairHom_range i j ho hp.1.symm hc⟩
 
 end KrebsSankarQ53

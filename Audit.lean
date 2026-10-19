@@ -313,3 +313,6 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.elementaryAbelian_exists_complement
 #print axioms KrebsSankarQ53.elementaryAbelian_exists_complement
+
+#check KrebsSankarQ53.no_d8_section_quaternion_product
+#print axioms KrebsSankarQ53.no_d8_section_quaternion_product
