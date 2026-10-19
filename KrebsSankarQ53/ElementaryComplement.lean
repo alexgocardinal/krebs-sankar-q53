@@ -1,4 +1,4 @@
-import KrebsSankarQ53.QuaternionCover
+import KrebsSankarQ53.CayleyCore
 import Mathlib.Algebra.Module.ZMod
 
 /-!

@@ -1,4 +1,5 @@
 import KrebsSankarQ53.ElementaryComplement
+import KrebsSankarQ53.QuaternionCover
 
 namespace KrebsSankarQ53
 

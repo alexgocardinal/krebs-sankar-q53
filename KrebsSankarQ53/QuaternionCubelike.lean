@@ -1,5 +1,6 @@
 import KrebsSankarQ53.CubelikeObstruction
-import KrebsSankarQ53.QuaternionPair
+import KrebsSankarQ53.ExponentFourCore
+import Mathlib.GroupTheory.SpecificGroups.Quaternion
 
 /-!
 # Every undirected Cayley graph on Q8 × E is cubelike
