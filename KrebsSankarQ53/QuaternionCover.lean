@@ -44,21 +44,21 @@ theorem no_d8_section_pair_correction
   rcases no_d8_section_commutator_mem_squarePair hG hno i g with hi | hi <;>
     rcases no_d8_section_commutator_mem_squarePair hG hno j g with hj | hj
   · refine ⟨1, H.one_mem, ?_, ?_⟩
-    · rw [one_mul, commutatorTerm_reverse g i, hi, inv_one]
-    · rw [one_mul, commutatorTerm_reverse g j, hj, inv_one]
+    · rw [one_mul, commutatorTerm_reverse i g, hi, inv_one]
+    · rw [one_mul, commutatorTerm_reverse j g, hj, inv_one]
   · refine ⟨i, hiH, ?_, ?_⟩
-    · rw [hformula, commutatorTerm_reverse g i, hi, inv_one, hii, one_mul]
-    · rw [hformula, commutatorTerm_reverse g j, hj, hij,
+    · rw [hformula, commutatorTerm_reverse i g, hi, inv_one, hii, one_mul]
+    · rw [hformula, commutatorTerm_reverse j g, hj, hij,
         ← (no_d8_section_noncommuting_pair_square_identity hG hno i j hne).1,
         involution_inv (square_is_involution hG i), square_is_involution hG i]
   · refine ⟨j, hjH, ?_, ?_⟩
-    · rw [hformula, commutatorTerm_reverse g i, hi, hji,
+    · rw [hformula, commutatorTerm_reverse i g, hi, hji,
         involution_inv (square_is_involution hG i), square_is_involution hG i]
-    · rw [hformula, commutatorTerm_reverse g j, hj, inv_one, hjj, one_mul]
+    · rw [hformula, commutatorTerm_reverse j g, hj, inv_one, hjj, one_mul]
   · refine ⟨i * j, H.mul_mem hiH hjH, ?_, ?_⟩
-    · rw [hformula, hformula i j i, commutatorTerm_reverse g i, hi, hji, hii,
+    · rw [hformula, hformula i j i, commutatorTerm_reverse i g, hi, hji, hii,
         mul_one, involution_inv (square_is_involution hG i), square_is_involution hG i]
-    · rw [hformula, hformula i j j, commutatorTerm_reverse g j, hj, hjj, hij,
+    · rw [hformula, hformula i j j, commutatorTerm_reverse j g, hj, hjj, hij,
         one_mul, ← (no_d8_section_noncommuting_pair_square_identity hG hno i j hne).1,
         involution_inv (square_is_involution hG i), square_is_involution hG i]
 

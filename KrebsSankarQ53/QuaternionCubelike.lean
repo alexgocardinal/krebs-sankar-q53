@@ -74,7 +74,9 @@ theorem quaternionProduct_cayley_three_implies_two
       φ.symm v = x⁻¹ * φ.symm (φ x * v) ∨
         φ.symm v = (x⁻¹ * φ.symm (φ x * v))⁻¹ := by
     have h := hdiff x (φ.symm (φ x * v))
-    simpa only [φ.apply_symm_apply, inv_mul_cancel_left] using h
+    have hcancel : (φ x)⁻¹ * (φ x * v) = v := by
+      rw [← mul_assoc, inv_mul_cancel, one_mul]
+    simpa only [φ.apply_symm_apply, hcancel] using h
   let T : Set V := φ '' S
   have hct : CayleyProperColoring T (fun v => c (φ.symm v)) := by
     intro x y hxy
@@ -104,6 +106,8 @@ theorem quaternionProduct_cayley_three_implies_two
     rcases hh with hh | hh
     · exact ⟨s, hs, by rw [← hh]; exact φ.apply_symm_apply _⟩
     · exact ⟨s⁻¹, hS s hs, by rw [← hh]; exact φ.apply_symm_apply _⟩
-  exact hd (φ x) (φ (x * s)) ⟨v, hv, by dsimp [v]; group⟩
+  exact hd (φ x) (φ (x * s)) ⟨v, hv, by
+    dsimp [v]
+    rw [← mul_assoc, mul_inv_cancel, one_mul]⟩
 
 end KrebsSankarQ53
