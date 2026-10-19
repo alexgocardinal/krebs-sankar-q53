@@ -17,14 +17,14 @@ theorem pair_images_commute_and_square_one
     let q : G →* G ⧸ N := QuotientGroup.mk' N
     q x * q x = 1 ∧ q y * q y = 1 ∧ q x * q y = q y * q x := by
   let q : G →* G ⧸ N := QuotientGroup.mk' N
+  have hxC : x ^ 2 ∈ pairCentralSubgroup x y :=
+    Subgroup.subset_closure (by simp)
+  have hyC : y ^ 2 ∈ pairCentralSubgroup x y :=
+    Subgroup.subset_closure (by simp)
   have hxN : x * x ∈ N := by
-    apply hN
-    change x ^ 2 ∈ pairCentralSubgroup x y
-    exact Subgroup.subset_closure (by simp)
+    simpa only [pow_two] using hN hxC
   have hyN : y * y ∈ N := by
-    apply hN
-    change y ^ 2 ∈ pairCentralSubgroup x y
-    exact Subgroup.subset_closure (by simp)
+    simpa only [pow_two] using hN hyC
   have hcN : commutatorTerm x y ∈ N := by
     apply hN
     exact Subgroup.subset_closure (by simp)
