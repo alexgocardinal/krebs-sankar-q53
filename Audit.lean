@@ -94,3 +94,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.d8_normal_forms
 #check KrebsSankarQ53.d8_pair_generates
 #print axioms KrebsSankarQ53.d8_pair_generates
+#check KrebsSankarQ53.d8WordInClosure
+#print axioms KrebsSankarQ53.d8WordInClosure
+#check KrebsSankarQ53.d8Word_first
+#print axioms KrebsSankarQ53.d8Word_first
+#check KrebsSankarQ53.d8Word_second
+#print axioms KrebsSankarQ53.d8Word_second

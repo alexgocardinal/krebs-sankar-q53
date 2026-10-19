@@ -15,6 +15,7 @@ import KrebsSankarQ53.DihedralEight
 import KrebsSankarQ53.DihedralGenerated
 import KrebsSankarQ53.D8Presentation
 import KrebsSankarQ53.D8NormalForms
+import KrebsSankarQ53.D8WordMap
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
