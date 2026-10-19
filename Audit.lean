@@ -182,3 +182,13 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.orbit_klein_normalizer_contains_local_group
 #check KrebsSankarQ53.orbit_klein_normal_in_local_group
 #print axioms KrebsSankarQ53.orbit_klein_normal_in_local_group
+#check KrebsSankarQ53.squarePairSubgroup
+#print axioms KrebsSankarQ53.squarePairSubgroup
+#check KrebsSankarQ53.squarePairSubgroup_card_two
+#print axioms KrebsSankarQ53.squarePairSubgroup_card_two
+#check KrebsSankarQ53.local_square_pair_mem_closure
+#print axioms KrebsSankarQ53.local_square_pair_mem_closure
+#check KrebsSankarQ53.local_square_pair_normal
+#print axioms KrebsSankarQ53.local_square_pair_normal
+#check KrebsSankarQ53.local_square_pair_outside_orbit
+#print axioms KrebsSankarQ53.local_square_pair_outside_orbit
