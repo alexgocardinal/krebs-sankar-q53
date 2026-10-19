@@ -38,6 +38,7 @@ import KrebsSankarQ53.LocalSquareQuotient
 import KrebsSankarQ53.SectionTransfer
 import KrebsSankarQ53.InvolutionsCentral
 import KrebsSankarQ53.CentralSquares
+import KrebsSankarQ53.ClassTwo
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring

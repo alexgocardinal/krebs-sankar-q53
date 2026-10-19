@@ -210,3 +210,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_squares_in_involutionSubgroup
 #check KrebsSankarQ53.no_d8_section_involutionSubgroup_central
 #print axioms KrebsSankarQ53.no_d8_section_involutionSubgroup_central
+#check KrebsSankarQ53.commutatorTerm_eq_squares
+#print axioms KrebsSankarQ53.commutatorTerm_eq_squares
+#check KrebsSankarQ53.no_d8_section_commutators_central
+#print axioms KrebsSankarQ53.no_d8_section_commutators_central
