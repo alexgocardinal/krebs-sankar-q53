@@ -124,3 +124,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.d8GeneratedEquiv
 #check KrebsSankarQ53.d8GeneratedSection_surjective
 #print axioms KrebsSankarQ53.d8GeneratedSection_surjective
+#check KrebsSankarQ53.noncommuting_involutions_three_chromatic_cayley_five
+#print axioms KrebsSankarQ53.noncommuting_involutions_three_chromatic_cayley_five
