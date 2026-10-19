@@ -34,6 +34,10 @@ import KrebsSankarQ53.OrbitKleinSubgroup
 import KrebsSankarQ53.OrbitSquareOutside
 import KrebsSankarQ53.OrbitKleinNormal
 import KrebsSankarQ53.LocalSquareSubgroup
+import KrebsSankarQ53.LocalSquareQuotient
+import KrebsSankarQ53.SectionTransfer
+import KrebsSankarQ53.InvolutionsCentral
+import KrebsSankarQ53.CentralSquares
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring

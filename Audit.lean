@@ -192,3 +192,21 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.local_square_pair_normal
 #check KrebsSankarQ53.local_square_pair_outside_orbit
 #print axioms KrebsSankarQ53.local_square_pair_outside_orbit
+#check KrebsSankarQ53.exponentFour_quotient
+#print axioms KrebsSankarQ53.exponentFour_quotient
+#check KrebsSankarQ53.quotient_noncommuting_involutions
+#print axioms KrebsSankarQ53.quotient_noncommuting_involutions
+#check KrebsSankarQ53.local_square_quotient_noncommuting_involutions
+#print axioms KrebsSankarQ53.local_square_quotient_noncommuting_involutions
+#check KrebsSankarQ53.hasD8Section_of_subgroup
+#print axioms KrebsSankarQ53.hasD8Section_of_subgroup
+#check KrebsSankarQ53.hasD8Section_of_quotient
+#print axioms KrebsSankarQ53.hasD8Section_of_quotient
+#check KrebsSankarQ53.no_d8_section_involutions_central
+#print axioms KrebsSankarQ53.no_d8_section_involutions_central
+#check KrebsSankarQ53.no_d8_section_squares_central
+#print axioms KrebsSankarQ53.no_d8_section_squares_central
+#check KrebsSankarQ53.no_d8_section_squares_in_involutionSubgroup
+#print axioms KrebsSankarQ53.no_d8_section_squares_in_involutionSubgroup
+#check KrebsSankarQ53.no_d8_section_involutionSubgroup_central
+#print axioms KrebsSankarQ53.no_d8_section_involutionSubgroup_central
