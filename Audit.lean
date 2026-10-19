@@ -150,3 +150,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.commutes_with_closure_pair
 #check KrebsSankarQ53.involutionOrbitProduct_centralizes_two_generator_subgroup
 #print axioms KrebsSankarQ53.involutionOrbitProduct_centralizes_two_generator_subgroup
+#check KrebsSankarQ53.moved_involution_four_distinct
+#print axioms KrebsSankarQ53.moved_involution_four_distinct

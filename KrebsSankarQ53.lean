@@ -27,6 +27,7 @@ import KrebsSankarQ53.InvolutionConjugation
 import KrebsSankarQ53.InvolutionOrbit
 import KrebsSankarQ53.OrbitCentralizer
 import KrebsSankarQ53.OrbitCenters
+import KrebsSankarQ53.OrbitFourDistinct
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
