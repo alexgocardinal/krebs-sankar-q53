@@ -274,3 +274,15 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
 #print axioms KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
+
+#check KrebsSankarQ53.q8PairHom
+#print axioms KrebsSankarQ53.q8PairHom
+
+#check KrebsSankarQ53.q8PairHom_injective
+#print axioms KrebsSankarQ53.q8PairHom_injective
+
+#check KrebsSankarQ53.no_d8_section_pair_conjugation
+#print axioms KrebsSankarQ53.no_d8_section_pair_conjugation
+
+#check KrebsSankarQ53.no_d8_section_contains_quaternion
+#print axioms KrebsSankarQ53.no_d8_section_contains_quaternion
