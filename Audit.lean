@@ -88,3 +88,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.d8First_second_noncommute
 #check KrebsSankarQ53.d8_exponent_four
 #print axioms KrebsSankarQ53.d8_exponent_four
+#check KrebsSankarQ53.d8_nat_card
+#print axioms KrebsSankarQ53.d8_nat_card
+#check KrebsSankarQ53.d8_normal_forms
+#print axioms KrebsSankarQ53.d8_normal_forms
+#check KrebsSankarQ53.d8_pair_generates
+#print axioms KrebsSankarQ53.d8_pair_generates
