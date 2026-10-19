@@ -52,6 +52,7 @@ import KrebsSankarQ53.ElementaryComplement
 import KrebsSankarQ53.NoD8Classification
 import KrebsSankarQ53.CubelikeObstruction
 import KrebsSankarQ53.QuaternionCubelike
+import KrebsSankarQ53.Classification
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring

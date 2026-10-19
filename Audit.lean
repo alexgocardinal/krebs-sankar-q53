@@ -319,3 +319,11 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.pair_image_product_square_one
 #print axioms KrebsSankarQ53.pair_image_product_square_one
+
+#check KrebsSankarQ53.d8_section_exact_three_card_le_ten
+#print axioms KrebsSankarQ53.d8_section_exact_three_card_le_ten
+#check KrebsSankarQ53.quaternionElementaryProduct_no_exact_three
+#print axioms KrebsSankarQ53.quaternionElementaryProduct_no_exact_three
+#check KrebsSankarQ53.q53_full_classification
+#print KrebsSankarQ53.q53_full_classification
+#print axioms KrebsSankarQ53.q53_full_classification
