@@ -162,3 +162,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.local_orbit_involutions_commute
 #check KrebsSankarQ53.local_orbit_central_involutions
 #print axioms KrebsSankarQ53.local_orbit_central_involutions
+#check KrebsSankarQ53.square_ne_orbit_product_of_no_d8
+#print axioms KrebsSankarQ53.square_ne_orbit_product_of_no_d8
+#check KrebsSankarQ53.local_square_avoids_orbit_four
+#print axioms KrebsSankarQ53.local_square_avoids_orbit_four
