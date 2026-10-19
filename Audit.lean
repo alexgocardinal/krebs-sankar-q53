@@ -118,3 +118,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.d8WordHom
 #check KrebsSankarQ53.d8WordHom_surjective
 #print axioms KrebsSankarQ53.d8WordHom_surjective
+#check KrebsSankarQ53.d8WordHom_bijective
+#print axioms KrebsSankarQ53.d8WordHom_bijective
+#check KrebsSankarQ53.d8GeneratedEquiv
+#print axioms KrebsSankarQ53.d8GeneratedEquiv
+#check KrebsSankarQ53.d8GeneratedSection_surjective
+#print axioms KrebsSankarQ53.d8GeneratedSection_surjective
