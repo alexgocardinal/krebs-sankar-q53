@@ -33,7 +33,8 @@ theorem no_d8_section_quaternion_product
   have hrange : f.range = Subgroup.closure ({i, j} : Set G) :=
     q8PairHom_range i j ho hp.1.symm hc
   have hfz : f (QuaternionGroup.a 2) = (z : G) := by
-    norm_num [f, q8PairHom, q8Word, q8Power, z]
+    change i ^ (2 : ZMod 4).val = i ^ 2
+    rw [show (2 : ZMod 4).val = 2 from rfl]
   let F : QuaternionGroup 2 × E →* G :=
     { toFun := fun x => f x.1 * ((x.2 : T) : G)
       map_one' := by simp
@@ -64,10 +65,11 @@ theorem no_d8_section_quaternion_product
     rcases hposs q hq2 with hq | hq
     · subst q
       rw [map_one, one_mul] at he
-      apply Prod.ext rfl
-      apply Subtype.ext
-      apply Subtype.ext
-      exact he
+      apply Prod.ext
+      · rfl
+      · apply Subtype.ext
+        apply Subtype.ext
+        exact he
     · have hze : z = (e : T)⁻¹ := by
         apply Subtype.ext
         exact hfz.symm.trans (by simpa only [hq] using hfe)
@@ -93,7 +95,9 @@ theorem no_d8_section_quaternion_product
       calc
         f (q * QuaternionGroup.a 2) * (e : G) = k * ((z : G) * (e : G)) := by
           rw [map_mul, hfz, hq]; group
-        _ = k * t := by rw [← congrArg Subtype.val hte]
+        _ = k * t := by
+          have hteG : t = (z : G) * (e : G) := congrArg Subtype.val hte
+          exact congrArg (fun a : G => k * a) hteG.symm
         _ = g := hg.symm
   refine ⟨E, inferInstance, ?_, ⟨(MulEquiv.ofBijective F ⟨hinj, hsurj⟩).symm⟩⟩
   intro e
