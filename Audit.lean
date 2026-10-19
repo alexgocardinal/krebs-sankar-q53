@@ -68,3 +68,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.involution_conjugates_rotation_mem
 #check KrebsSankarQ53.dihedralNormalFormSubgroup
 #print axioms KrebsSankarQ53.dihedralNormalFormSubgroup
+#check KrebsSankarQ53.first_involution_mem_dihedralNormalFormSubgroup
+#print axioms KrebsSankarQ53.first_involution_mem_dihedralNormalFormSubgroup
+#check KrebsSankarQ53.second_involution_mem_dihedralNormalFormSubgroup
+#print axioms KrebsSankarQ53.second_involution_mem_dihedralNormalFormSubgroup
+#check KrebsSankarQ53.dihedralNormalFormSubgroup_card_eight
+#print axioms KrebsSankarQ53.dihedralNormalFormSubgroup_card_eight

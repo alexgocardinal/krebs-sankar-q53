@@ -11,6 +11,7 @@ import KrebsSankarQ53.FiveStepPattern
 import KrebsSankarQ53.D8FiveLift
 import KrebsSankarQ53.DihedralCosets
 import KrebsSankarQ53.DihedralNormalForm
+import KrebsSankarQ53.DihedralEight
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
