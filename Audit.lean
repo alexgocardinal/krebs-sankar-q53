@@ -216,3 +216,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_commutators_central
 #check KrebsSankarQ53.no_d8_section_commutator_involution
 #print axioms KrebsSankarQ53.no_d8_section_commutator_involution
+#check KrebsSankarQ53.commutatorTerm_eq_one_iff
+#print axioms KrebsSankarQ53.commutatorTerm_eq_one_iff
+#check KrebsSankarQ53.no_d8_section_noncommuting_pair_core
+#print axioms KrebsSankarQ53.no_d8_section_noncommuting_pair_core
+#check KrebsSankarQ53.no_d8_section_pair_core_mem_involutions
+#print axioms KrebsSankarQ53.no_d8_section_pair_core_mem_involutions
