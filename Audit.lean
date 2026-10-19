@@ -244,3 +244,18 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.pair_images_commute_and_square_one
 #print axioms KrebsSankarQ53.pair_images_commute_and_square_one
+
+#check KrebsSankarQ53.no_d8_section_squarePairSubgroup_normal
+#print axioms KrebsSankarQ53.no_d8_section_squarePairSubgroup_normal
+
+#check KrebsSankarQ53.no_d8_section_commutator_mem_squarePair
+#print axioms KrebsSankarQ53.no_d8_section_commutator_mem_squarePair
+
+#check KrebsSankarQ53.no_d8_section_noncommuting_commutator_eq_square
+#print axioms KrebsSankarQ53.no_d8_section_noncommuting_commutator_eq_square
+
+#check KrebsSankarQ53.commutatorTerm_reverse
+#print axioms KrebsSankarQ53.commutatorTerm_reverse
+
+#check KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
+#print axioms KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
