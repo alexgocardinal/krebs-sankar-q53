@@ -222,3 +222,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_noncommuting_pair_core
 #check KrebsSankarQ53.no_d8_section_pair_core_mem_involutions
 #print axioms KrebsSankarQ53.no_d8_section_pair_core_mem_involutions
+#check KrebsSankarQ53.commutatorTerm_mul_reverse
+#print axioms KrebsSankarQ53.commutatorTerm_mul_reverse
+#check KrebsSankarQ53.no_d8_section_pair_product_square
+#print axioms KrebsSankarQ53.no_d8_section_pair_product_square
+#check KrebsSankarQ53.pair_core_mem_closure
+#print axioms KrebsSankarQ53.pair_core_mem_closure

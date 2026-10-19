@@ -40,6 +40,7 @@ import KrebsSankarQ53.InvolutionsCentral
 import KrebsSankarQ53.CentralSquares
 import KrebsSankarQ53.ClassTwo
 import KrebsSankarQ53.PairCore
+import KrebsSankarQ53.PairRelations
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
