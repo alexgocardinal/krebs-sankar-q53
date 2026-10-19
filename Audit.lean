@@ -74,3 +74,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.second_involution_mem_dihedralNormalFormSubgroup
 #check KrebsSankarQ53.dihedralNormalFormSubgroup_card_eight
 #print axioms KrebsSankarQ53.dihedralNormalFormSubgroup_card_eight
+#check KrebsSankarQ53.dihedralNormalFormSubgroup_eq_closure_pair
+#print axioms KrebsSankarQ53.dihedralNormalFormSubgroup_eq_closure_pair
+#check KrebsSankarQ53.noncommuting_involutions_closure_card_eight
+#print axioms KrebsSankarQ53.noncommuting_involutions_closure_card_eight
