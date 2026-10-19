@@ -55,6 +55,6 @@ import KrebsSankarQ53.QuaternionCubelike
 import KrebsSankarQ53.Classification
 
 /-!
-The library imports the finite dihedral witness and general Cayley coloring
-lemmas. The classification theorem has not been formalized here.
+The library imports every proof module, including the full classification
+and its finite inverse-closed connection-set bound in Classification.lean.
 -/

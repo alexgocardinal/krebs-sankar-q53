@@ -8,7 +8,6 @@ on:
 
 permissions:
   contents: read
-  checks: write
 
 jobs:
   lean:
@@ -23,31 +22,3 @@ jobs:
           axiom-audit: true
       - name: Audit named results
         run: lake env lean Audit.lean
-      - name: Publish compiler diagnostics after a failure
-        if: failure()
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const cp = require('node:child_process');
-            let text = '';
-            for (const args of [['build'], ['env', 'lean', 'Audit.lean']]) {
-              try {
-                text += '$ lake ' + args.join(' ') + '\n';
-                text += cp.execFileSync('lake', args, {encoding: 'utf8', maxBuffer: 4 * 1024 * 1024});
-              } catch (error) {
-                text += (error.stdout || '') + (error.stderr || '') + '\n';
-              }
-            }
-            await github.rest.checks.create({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              name: 'Lean compiler diagnostics',
-              head_sha: context.payload.pull_request?.head.sha || context.sha,
-              status: 'completed',
-              conclusion: 'failure',
-              output: {
-                title: 'Compiler output from the failed Lean build',
-                summary: 'The primary Lean verification job remains the acceptance gate.',
-                text: text.slice(-60000)
-              }
-            });

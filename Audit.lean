@@ -2,8 +2,8 @@ import KrebsSankarQ53
 
 /-!
 Run `lake env lean Audit.lean` after a successful `lake build`.
-This audit covers the finite witness and the general coloring lemmas;
-it is not a classification audit.
+This audit covers the full classification, its structural and graph inputs,
+and the inverse-closed ten-element witness.
 -/
 
 #check KrebsSankarQ53.concrete_cayley_witness
@@ -327,3 +327,8 @@ it is not a classification audit.
 #check KrebsSankarQ53.q53_full_classification
 #print KrebsSankarQ53.q53_full_classification
 #print axioms KrebsSankarQ53.q53_full_classification
+
+#print KrebsSankarQ53.ExponentFour
+#print KrebsSankarQ53.IsExactThreeCayleyConnection
+#print KrebsSankarQ53.HasExactThreeCayley
+#print KrebsSankarQ53.IsQuaternionElementaryProduct

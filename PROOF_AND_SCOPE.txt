@@ -183,3 +183,25 @@ These are background classifications of group/Cayley-graph symmetries, not
 the cited three-chromatic-existence question. Text searches in the two
 accessible AJC papers returned no occurrences of 'chrom' or 'cubelike'.
 Their group-theoretic ingredients should not be presented as wholly new.
+
+5. LEAN FORMALIZATION — 19 OCTOBER 2026
+
+The exact classification and cardinality-at-most-ten bound are now formalized
+as KrebsSankarQ53.q53_full_classification. The theorem covers arbitrary
+nonabelian exponent-four groups, infinite elementary abelian factors, and
+disconnected Cayley graphs, with inverse-closed identity-free connection sets.
+
+Source commit 2ed9cc4869886ca847d77086d4727ef534449212 passed lake build,
+the project-wide axiom allowlist audit (708 declarations), and
+lake env lean Audit.lean in GitHub Actions run 39316121516.
+The final theorem's printed dependencies are exactly propext,
+Classical.choice, and Quot.sound. See LEAN_VERIFICATION.md for links,
+module mapping, attribution, and the exact quantified scope.
+
+The cubelike argument adapts Sergi Galán's MIT-licensed combinatorial
+winding lemmas, retaining the notice, and proves the arbitrary infinite
+exponent-two obstruction directly by reversal and path parity. It uses no
+external cubelike assumption or finite-group classification.
+
+The implementation is in draft PR #3 for review and merge. No Lean proof
+gap remains in the stated classification at the checked source commit.
