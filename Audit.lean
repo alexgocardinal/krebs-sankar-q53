@@ -106,3 +106,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.reflected_rotation_mul_rotation_zpow
 #check KrebsSankarQ53.reflected_rotation_mul_reflected_rotation_zpow
 #print axioms KrebsSankarQ53.reflected_rotation_mul_reflected_rotation_zpow
+#check KrebsSankarQ53.d8Word_mul_first
+#print axioms KrebsSankarQ53.d8Word_mul_first
+#check KrebsSankarQ53.d8Word_mul_rotation
+#print axioms KrebsSankarQ53.d8Word_mul_rotation
