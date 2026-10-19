@@ -178,3 +178,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.orbit_klein_stable_under_conjugator
 #check KrebsSankarQ53.orbit_klein_with_external_central_square
 #print axioms KrebsSankarQ53.orbit_klein_with_external_central_square
+#check KrebsSankarQ53.orbit_klein_normalizer_contains_local_group
+#print axioms KrebsSankarQ53.orbit_klein_normalizer_contains_local_group
+#check KrebsSankarQ53.orbit_klein_normal_in_local_group
+#print axioms KrebsSankarQ53.orbit_klein_normal_in_local_group

@@ -32,6 +32,7 @@ import KrebsSankarQ53.OrbitLocalBundle
 import KrebsSankarQ53.OrbitSquareSeparation
 import KrebsSankarQ53.OrbitKleinSubgroup
 import KrebsSankarQ53.OrbitSquareOutside
+import KrebsSankarQ53.OrbitKleinNormal
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
