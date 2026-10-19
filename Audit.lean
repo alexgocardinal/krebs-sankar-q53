@@ -138,3 +138,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.conjugate_twice_involution_of_no_d8
 #check KrebsSankarQ53.noncentral_involution_conjugator_order_four
 #print axioms KrebsSankarQ53.noncentral_involution_conjugator_order_four
+#check KrebsSankarQ53.involutionOrbitProduct_involution
+#print axioms KrebsSankarQ53.involutionOrbitProduct_involution
+#check KrebsSankarQ53.involutionOrbitProduct_commutes_with_conjugator
+#print axioms KrebsSankarQ53.involutionOrbitProduct_commutes_with_conjugator
