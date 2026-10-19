@@ -172,11 +172,15 @@ theorem q8PairHom_range {G : Type*} [Group G] (i j : G)
   · apply (Subgroup.closure_le f.range).2
     intro g hg
     have hg' : g = i ∨ g = j := by simpa using hg
-    rcases hg' with rfl | rfl
+    rcases hg' with hgi | hgj
     · refine ⟨QuaternionGroup.a (1 : ZMod 4), ?_⟩
-      change _ ^ (1 : ZMod 4).val = _
+      change i ^ (1 : ZMod 4).val = g
       rw [show (1 : ZMod 4).val = 1 from rfl, pow_one]
-    · exact ⟨QuaternionGroup.xa 0, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
+      exact hgi.symm
+    · refine ⟨QuaternionGroup.xa (0 : ZMod 4), ?_⟩
+      change j * i ^ (0 : ZMod 4).val = g
+      rw [show (0 : ZMod 4).val = 0 from rfl, pow_zero, mul_one]
+      exact hgj.symm
 
 /-- Every noncommuting pair generates a copy of the standard Q8. -/
 theorem no_d8_section_contains_quaternion
