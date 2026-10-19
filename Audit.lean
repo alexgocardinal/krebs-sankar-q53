@@ -241,3 +241,6 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_pairCentralSubgroup_normal
 #check KrebsSankarQ53.no_d8_section_pairCentralSubgroup_normal_in_pair
 #print axioms KrebsSankarQ53.no_d8_section_pairCentralSubgroup_normal_in_pair
+
+#check KrebsSankarQ53.pair_images_commute_and_square_one
+#print axioms KrebsSankarQ53.pair_images_commute_and_square_one
