@@ -286,3 +286,18 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.no_d8_section_contains_quaternion
 #print axioms KrebsSankarQ53.no_d8_section_contains_quaternion
+
+#check KrebsSankarQ53.no_d8_section_pair_correction
+#print axioms KrebsSankarQ53.no_d8_section_pair_correction
+
+#check KrebsSankarQ53.no_d8_section_quaternion_center_cover
+#print axioms KrebsSankarQ53.no_d8_section_quaternion_center_cover
+
+#check KrebsSankarQ53.CubelikeWinding.exponent_two_closed_walk_even
+#print axioms KrebsSankarQ53.CubelikeWinding.exponent_two_closed_walk_even
+
+#check KrebsSankarQ53.CubelikeWinding.exponent_two_closure_two_coloring
+#print axioms KrebsSankarQ53.CubelikeWinding.exponent_two_closure_two_coloring
+
+#check KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
+#print axioms KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
