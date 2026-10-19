@@ -310,3 +310,6 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
 #print axioms KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
+
+#check KrebsSankarQ53.elementaryAbelian_exists_complement
+#print axioms KrebsSankarQ53.elementaryAbelian_exists_complement

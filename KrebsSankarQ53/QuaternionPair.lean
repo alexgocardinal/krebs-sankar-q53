@@ -19,7 +19,8 @@ theorem order_four_of_fourth_one_square_ne_one
   intro m hm hpos hp
   have hm' : m = 1 ∨ m = 2 ∨ m = 3 := by omega
   rcases hm' with rfl | rfl | rfl
-  · exact h2 (by simpa using congrArg (fun g : G => g ^ 2) hp)
+  · have hi : i = 1 := by simpa only [pow_one] using hp
+    exact h2 (by rw [hi]; exact one_pow 2)
   · exact h2 hp
   · have hi : i = 1 := by
       calc
@@ -36,7 +37,9 @@ theorem q8Power_zero {G : Type*} [Group G] (i : G) : q8Power i 0 = 1 := by
 theorem q8Power_add {G : Type*} [Group G] (i : G) (ho : orderOf i = 4)
     (a b : ZMod 4) : q8Power i (a + b) = q8Power i a * q8Power i b := by
   simp only [q8Power, ZMod.val_add]
-  rw [← ho, pow_mod_orderOf, pow_add]
+  have hm := pow_mod_orderOf i (a.val + b.val)
+  rw [ho] at hm
+  exact hm.trans (pow_add i a.val b.val)
 
 theorem q8Power_neg {G : Type*} [Group G] (i : G) (ho : orderOf i = 4)
     (a : ZMod 4) : q8Power i (-a) = (q8Power i a)⁻¹ := by
@@ -124,7 +127,10 @@ def q8PairHom {G : Type*} [Group G] (i j : G) (ho : orderOf i = 4)
           have hh : Commute (q8Power i b) (q8Power i a) :=
             (Commute.refl i).pow_pow b.val a.val
           rw [mul_assoc, hh.inv_right.eq]
-        _ = j * (j * q8Power i (-a)) * q8Power i b := by rw [q8Power_neg i ho]; group
+        _ = j * (j * q8Power i (-a)) * q8Power i b := by
+          rw [q8Power_neg i ho]
+          simp only [pow_two]
+          group
         _ = (j * q8Power i a) * (j * q8Power i b) := by
           rw [← q8Power_move i j ho hc]; group
 
@@ -174,7 +180,7 @@ theorem no_d8_section_contains_quaternion
     intro g hg
     have hg' : g = i ∨ g = j := by simpa using hg
     rcases hg' with rfl | rfl
-    · exact ⟨QuaternionGroup.a 1, by simp [f, q8PairHom, q8Word, q8Power]⟩
-    · exact ⟨QuaternionGroup.xa 0, by simp [f, q8PairHom, q8Word, q8Power]⟩
+    · exact ⟨QuaternionGroup.a 1, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
+    · exact ⟨QuaternionGroup.xa 0, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
 
 end KrebsSankarQ53

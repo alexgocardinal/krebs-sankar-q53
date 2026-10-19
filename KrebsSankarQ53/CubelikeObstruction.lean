@@ -84,7 +84,7 @@ theorem exponent_two_closure_two_coloring (hG : ∀ g : G, g + g = 0)
   have hmem : ∀ t ∈ path g ++ [s] ++ path y, t ∈ S := by
     intro t ht
     simp only [List.mem_append, List.mem_singleton] at ht
-    rcases ht with ht | ht | ht
+    rcases ht with (ht | ht) | ht
     · exact hpath g t ht
     · simpa only [ht] using hs
     · exact hpath y t ht
@@ -141,7 +141,9 @@ theorem elementaryAbelian_cayley_three_implies_two
     · rintro ⟨s, hs, rfl⟩
       exact hs
     · intro hg
-      have hk : g ∈ K := AddSubgroup.subset_closure hg
+      have hgT : Additive.ofMul g ∈ T := hg
+      have hk : g ∈ K :=
+        (show Additive.ofMul g ∈ H from AddSubgroup.subset_closure hgT)
       exact ⟨⟨g, hk⟩, hg, rfl⟩
   obtain ⟨C, hC⟩ := subgroup_color_extend K U 2 bk hbk
   exact ⟨C, by simpa only [hconn] using hC⟩
