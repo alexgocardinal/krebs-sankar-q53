@@ -142,3 +142,7 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.involutionOrbitProduct_involution
 #check KrebsSankarQ53.involutionOrbitProduct_commutes_with_conjugator
 #print axioms KrebsSankarQ53.involutionOrbitProduct_commutes_with_conjugator
+#check KrebsSankarQ53.involutionOrbitProduct_ne_one_of_noncommute
+#print axioms KrebsSankarQ53.involutionOrbitProduct_ne_one_of_noncommute
+#check KrebsSankarQ53.square_centralizes_two_generator_subgroup_of_no_d8
+#print axioms KrebsSankarQ53.square_centralizes_two_generator_subgroup_of_no_d8
