@@ -172,3 +172,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.orbit_klein_mem_closure_pair
 #check KrebsSankarQ53.orbit_klein_card_four
 #print axioms KrebsSankarQ53.orbit_klein_card_four
+#check KrebsSankarQ53.square_not_mem_orbit_klein
+#print axioms KrebsSankarQ53.square_not_mem_orbit_klein
+#check KrebsSankarQ53.orbit_klein_stable_under_conjugator
+#print axioms KrebsSankarQ53.orbit_klein_stable_under_conjugator
+#check KrebsSankarQ53.orbit_klein_with_external_central_square
+#print axioms KrebsSankarQ53.orbit_klein_with_external_central_square
