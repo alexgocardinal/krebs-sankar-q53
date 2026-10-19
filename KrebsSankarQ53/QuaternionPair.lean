@@ -173,7 +173,9 @@ theorem q8PairHom_range {G : Type*} [Group G] (i j : G)
     intro g hg
     have hg' : g = i ∨ g = j := by simpa using hg
     rcases hg' with rfl | rfl
-    · exact ⟨QuaternionGroup.a 1, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
+    · refine ⟨QuaternionGroup.a (1 : ZMod 4), ?_⟩
+      change _ ^ (1 : ZMod 4).val = _
+      rw [show (1 : ZMod 4).val = 1 from rfl, pow_one]
     · exact ⟨QuaternionGroup.xa 0, by norm_num [f, q8PairHom, q8Word, q8Power]⟩
 
 /-- Every noncommuting pair generates a copy of the standard Q8. -/
