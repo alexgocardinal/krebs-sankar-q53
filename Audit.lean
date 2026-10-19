@@ -244,3 +244,5 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.pair_images_commute_and_square_one
 #print axioms KrebsSankarQ53.pair_images_commute_and_square_one
+#check KrebsSankarQ53.pair_image_product_square_one
+#print axioms KrebsSankarQ53.pair_image_product_square_one
