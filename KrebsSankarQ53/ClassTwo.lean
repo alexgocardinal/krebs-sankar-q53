@@ -50,4 +50,33 @@ theorem no_d8_section_commutators_central
   rw [commutatorTerm_eq_squares x y hxy]
   exact (hfirst.mul_left hsecond.inv_left).eq
 
+theorem no_d8_section_commutator_involution
+    {G : Type*} [Group G] (hG : ExponentFour G)
+    (hno : ¬ HasD8Section G) (x y : G) :
+    commutatorTerm x y * commutatorTerm x y = 1 := by
+  have hxy : x ^ 2 * y = y * x ^ 2 :=
+    no_d8_section_squares_central hG hno x y
+  have hyx : y ^ 2 * x ^ 2 = x ^ 2 * y ^ 2 :=
+    no_d8_section_squares_central hG hno y (x ^ 2)
+  have hB : (x ^ 2 * y ^ 2) * (x ^ 2 * y ^ 2) = 1 := by
+    calc
+      (x ^ 2 * y ^ 2) * (x ^ 2 * y ^ 2) =
+          x ^ 2 * (y ^ 2 * x ^ 2) * y ^ 2 := by group
+      _ = (x ^ 2 * x ^ 2) * (y ^ 2 * y ^ 2) := by rw [hyx]; group
+      _ = 1 := by rw [square_is_involution hG x, square_is_involution hG y, one_mul]
+  have hA : (x * y) ^ 2 * (x * y) ^ 2 = 1 :=
+    square_is_involution hG (x * y)
+  have hAB : (x * y) ^ 2 * (x ^ 2 * y ^ 2) =
+      (x ^ 2 * y ^ 2) * (x * y) ^ 2 :=
+    no_d8_section_squares_central hG hno (x * y) (x ^ 2 * y ^ 2)
+  rw [commutatorTerm_eq_squares x y hxy, involution_inv hB]
+  calc
+    ((x * y) ^ 2 * (x ^ 2 * y ^ 2)) *
+        ((x * y) ^ 2 * (x ^ 2 * y ^ 2)) =
+        (x * y) ^ 2 * ((x ^ 2 * y ^ 2) * (x * y) ^ 2) *
+          (x ^ 2 * y ^ 2) := by group
+    _ = ((x * y) ^ 2 * (x * y) ^ 2) *
+        ((x ^ 2 * y ^ 2) * (x ^ 2 * y ^ 2)) := by rw [← hAB]; group
+    _ = 1 := by rw [hA, hB, one_mul]
+
 end KrebsSankarQ53

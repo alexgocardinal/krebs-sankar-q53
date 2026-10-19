@@ -214,3 +214,5 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.commutatorTerm_eq_squares
 #check KrebsSankarQ53.no_d8_section_commutators_central
 #print axioms KrebsSankarQ53.no_d8_section_commutators_central
+#check KrebsSankarQ53.no_d8_section_commutator_involution
+#print axioms KrebsSankarQ53.no_d8_section_commutator_involution
