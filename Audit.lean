@@ -132,3 +132,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.no_d8_section_involutions_commute
 #check KrebsSankarQ53.no_d8_section_involution_subgroup
 #print axioms KrebsSankarQ53.no_d8_section_involution_subgroup
+#check KrebsSankarQ53.square_commutes_with_involution_of_no_d8
+#print axioms KrebsSankarQ53.square_commutes_with_involution_of_no_d8
+#check KrebsSankarQ53.conjugate_twice_involution_of_no_d8
+#print axioms KrebsSankarQ53.conjugate_twice_involution_of_no_d8
+#check KrebsSankarQ53.noncentral_involution_conjugator_order_four
+#print axioms KrebsSankarQ53.noncentral_involution_conjugator_order_four
