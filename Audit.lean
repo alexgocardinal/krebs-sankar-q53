@@ -78,3 +78,13 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.dihedralNormalFormSubgroup_eq_closure_pair
 #check KrebsSankarQ53.noncommuting_involutions_closure_card_eight
 #print axioms KrebsSankarQ53.noncommuting_involutions_closure_card_eight
+#check KrebsSankarQ53.d8First_involution
+#print axioms KrebsSankarQ53.d8First_involution
+#check KrebsSankarQ53.d8Second_involution
+#print axioms KrebsSankarQ53.d8Second_involution
+#check KrebsSankarQ53.d8First_second_product
+#print axioms KrebsSankarQ53.d8First_second_product
+#check KrebsSankarQ53.d8First_second_noncommute
+#print axioms KrebsSankarQ53.d8First_second_noncommute
+#check KrebsSankarQ53.d8_exponent_four
+#print axioms KrebsSankarQ53.d8_exponent_four
