@@ -49,6 +49,7 @@ import KrebsSankarQ53.QuaternionCentralizer
 import KrebsSankarQ53.QuaternionPair
 import KrebsSankarQ53.QuaternionCover
 import KrebsSankarQ53.CubelikeObstruction
+import KrebsSankarQ53.QuaternionCubelike
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring

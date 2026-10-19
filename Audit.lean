@@ -301,3 +301,12 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
 #print axioms KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
+
+#check KrebsSankarQ53.q8Coordinates
+#print axioms KrebsSankarQ53.q8Coordinates
+
+#check KrebsSankarQ53.q8Coordinates_difference
+#print axioms KrebsSankarQ53.q8Coordinates_difference
+
+#check KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
+#print axioms KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
