@@ -166,3 +166,9 @@ it is not a classification audit.
 #print axioms KrebsSankarQ53.square_ne_orbit_product_of_no_d8
 #check KrebsSankarQ53.local_square_avoids_orbit_four
 #print axioms KrebsSankarQ53.local_square_avoids_orbit_four
+#check KrebsSankarQ53.orbitKleinSubgroup
+#print axioms KrebsSankarQ53.orbitKleinSubgroup
+#check KrebsSankarQ53.orbit_klein_mem_closure_pair
+#print axioms KrebsSankarQ53.orbit_klein_mem_closure_pair
+#check KrebsSankarQ53.orbit_klein_card_four
+#print axioms KrebsSankarQ53.orbit_klein_card_four
