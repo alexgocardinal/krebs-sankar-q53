@@ -43,8 +43,10 @@ theorem elementaryAbelian_exists_complement
   have hu' : u = 0 ∨ u = Additive.ofMul z := by
     obtain ⟨a, ha⟩ := Submodule.mem_span_singleton.mp hu
     fin_cases a
-    · left; simpa using ha.symm
-    · right; simpa using ha.symm
+    · left
+      exact ha.symm.trans (zero_smul (ZMod 2) (Additive.ofMul z))
+    · right
+      exact ha.symm.trans (one_smul (ZMod 2) (Additive.ofMul z))
   refine ⟨Additive.toMul v, hv, ?_⟩
   have heq : t = Additive.toMul u * Additive.toMul v :=
     congrArg Additive.toMul huv.symm
@@ -54,5 +56,6 @@ theorem elementaryAbelian_exists_complement
     simp
   · right
     rw [heq, hu']
+    rfl
 
 end KrebsSankarQ53
