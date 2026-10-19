@@ -45,4 +45,24 @@ theorem pair_images_commute_and_square_one
         simpa only [q, QuotientGroup.mk'_apply] using
           (QuotientGroup.eq_one_iff (y * y)).2 hyN
 
+theorem pair_image_product_square_one
+    {G : Type*} [Group G] (x y : G)
+    (N : Subgroup G) [N.Normal]
+    (hN : pairCentralSubgroup x y ≤ N) :
+    let q : G →* G ⧸ N := QuotientGroup.mk' N
+    q (x * y) * q (x * y) = 1 := by
+  let q : G →* G ⧸ N := QuotientGroup.mk' N
+  have h := pair_images_commute_and_square_one x y N hN
+  change q x * q x = 1 ∧ q y * q y = 1 ∧ q x * q y = q y * q x at h
+  rcases h with ⟨hx, hy, hcomm⟩
+  change q (x * y) * q (x * y) = 1
+  rw [map_mul]
+  calc
+    (q x * q y) * (q x * q y) = (q x * q x) * (q y * q y) := by
+      calc
+        _ = q x * (q y * q x) * q y := by group
+        _ = q x * (q x * q y) * q y := by rw [hcomm]
+        _ = (q x * q x) * (q y * q y) := by group
+    _ = 1 := by rw [hx, hy, one_mul]
+
 end KrebsSankarQ53

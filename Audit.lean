@@ -316,3 +316,6 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.no_d8_section_quaternion_product
 #print axioms KrebsSankarQ53.no_d8_section_quaternion_product
+
+#check KrebsSankarQ53.pair_image_product_square_one
+#print axioms KrebsSankarQ53.pair_image_product_square_one
