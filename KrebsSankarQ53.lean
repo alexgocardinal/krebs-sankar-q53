@@ -45,6 +45,7 @@ import KrebsSankarQ53.PairCentralSubgroup
 import KrebsSankarQ53.PairCentralNormal
 import KrebsSankarQ53.PairQuotientGenerators
 import KrebsSankarQ53.PairSquareIdentity
+import KrebsSankarQ53.QuaternionCentralizer
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring

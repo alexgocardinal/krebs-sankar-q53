@@ -259,3 +259,18 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
 #print axioms KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_square_one
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_square_one
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_iff_involution
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_iff_involution
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_is_central
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_is_central
+
+#check KrebsSankarQ53.no_d8_section_all_squares_one_or_pair_square
+#print axioms KrebsSankarQ53.no_d8_section_all_squares_one_or_pair_square
+
+#check KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
+#print axioms KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
