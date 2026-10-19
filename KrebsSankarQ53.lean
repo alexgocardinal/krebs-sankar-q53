@@ -22,6 +22,7 @@ import KrebsSankarQ53.D8WordHom
 import KrebsSankarQ53.D8WordSurjective
 import KrebsSankarQ53.D8WordEquiv
 import KrebsSankarQ53.NoncommutingWitness
+import KrebsSankarQ53.NoD8Involutions
 
 /-!
 The library imports the finite dihedral witness and general Cayley coloring
