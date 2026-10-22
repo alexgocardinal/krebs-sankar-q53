@@ -53,10 +53,9 @@ import KrebsSankarQ53.NoD8Classification
 import KrebsSankarQ53.CubelikeObstruction
 import KrebsSankarQ53.QuaternionCubelike
 import KrebsSankarQ53.Classification
+import KrebsSankarQ53.FiveElementLift
 
 /-!
 The library imports every proof module, including the full classification
 and its finite inverse-closed connection-set bound in Classification.lean.
 -/
-
-import KrebsSankarQ53.FiveElementLift
