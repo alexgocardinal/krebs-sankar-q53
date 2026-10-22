@@ -55,9 +55,9 @@ equivalent F2-vector-space structure without a finite-dimensionality assumption.
 ## Review status
 
 No Lean proof gap remains in the exact classification at the checked source
-commit. The implementation is in draft PR #3 for review and merge.
-Publication priority and the manuscript's historical claims remain matters
-for mathematical/editorial review.
+revision. PR #3 records the completed implementation. The manuscript now
+states the full verification scope and acknowledges the overlapping literature.
+See `PUBLICATION_PRIORITY.md` for the bounded priority assessment.
 
 ## Third-party proof source
 
@@ -67,3 +67,4 @@ The combinatorial winding lemmas are adapted from Sergi Galán's MIT-licensed
 the retained lemmas compile under this project's 4.29.0. The averaging and
 `TheoremWInf` modules are not imported. Neither CayleyExpanded nor any
 external classification or cubelike theorem is assumed.
+

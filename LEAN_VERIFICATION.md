@@ -59,7 +59,16 @@ sums, then path parity and coset extension. It handles infinite groups and
 arbitrary connection sets directly. No finite-group classification, Sanov
 finiteness theorem, or external cubelike theorem is assumed.
 
-## Remaining work
+## Latest reviewed proof revision
 
+Revision `0866eb8b5cc582f997e48d0f0df03702600a9aeb` also passed
+[Lean verification 39317175310](https://github.com/alexgocardinal/krebs-sankar-q53/actions/runs/39317175310),
+including the build, project-wide axiom audit, and named-result audit.
+The final theorem's printed dependencies remain exactly
+`[propext, Classical.choice, Quot.sound]`.
+
+The manuscript and documentation were reconciled with this complete result
+on 22 October 2026. The proof source is unchanged by that revision.
 The exact classification and stated size bound have no remaining Lean proof
-gaps at the checked source commit. PR #3 remains a draft for review and merge.
+gaps at the checked source revision. PR #3 records the completed development.
+

@@ -18,10 +18,11 @@ three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
   abelian two-group. It also gives a finite, inverse-closed, identity-free
   connection set of cardinality at most ten in every positive case.
 - `lake build`, the project-wide axiom audit, and `lake env lean Audit.lean`
-  passed on 19 October 2026. The final theorem depends only on
+  passed for proof revision `0866eb8` on 19 October 2026. The final theorem depends only on
   `propext`, `Classical.choice`, and `Quot.sound`.
-- The completed formalization is in [draft PR #3](https://github.com/alexgocardinal/krebs-sankar-q53/pull/3)
-  for review and merge.
+- The completed formalization and revised manuscript are included in this
+  repository; [PR #3](https://github.com/alexgocardinal/krebs-sankar-q53/pull/3)
+  records the proof development.
 - See [LEAN_VERIFICATION.md](LEAN_VERIFICATION.md) for the exact checked
   source commit, CI run, scope, module map, and third-party attribution.
 - Human-readable manuscript and finite computational checks are retained.
@@ -33,7 +34,8 @@ three-chromatic Cayley graph; disconnected Cayley graphs are permitted.
 - `verify_small.py`: standard-library Python checks supplied in the evidence.
 - `finite_verification.json`: output reproduced from that script.
 - `PROOF_AND_SCOPE.txt`: supplied mathematical proof and scope record.
-- `FORMALIZATION_PLAN.md`: remaining proof work and acceptance checks.
+- `FORMALIZATION_PLAN.md`: completed proof map and acceptance checks.
+- `PUBLICATION_PRIORITY.md`: literature overlap and the manuscript's contribution.
 - `KrebsSankarQ53/Witness.lean`: concrete graph and finite multiplication.
 - `KrebsSankarQ53/CayleyCore.lean`, `CycleLift.lean`, `D8Group.lean`,
   `QuotientLift.lean`, `SubgroupLift.lean`: checked coloring and lifting lemmas.
@@ -87,3 +89,4 @@ pdflatex Krebs_Sankar_Q53_Chan.tex
 
 Before submission, review the checked theorem and manuscript together and
 rerun the verification commands on the intended release commit.
+
