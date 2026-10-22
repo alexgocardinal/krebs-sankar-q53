@@ -17,7 +17,7 @@
 \author{Alex Chan\\[2pt]
   \small Harvard University and National Bureau of Economic Research\\[-1pt]
   \small \texttt{achan@hbs.edu}}
-\date{\today}
+\date{October 22, 2026}
 
 \begin{document}
 \maketitle
@@ -28,7 +28,8 @@ exponent four admits an undirected Cayley graph of chromatic number three
 if and only if it is not a direct product of the quaternion group of order
 eight and an elementary abelian two-group. The classification includes
 infinite groups, and every positive case has a connection set of at most
-ten elements.
+ten elements. We give a direct structural proof and a complete Lean
+formalization of the classification.
 \end{abstract}
 
 \section{Introduction and the dihedral witness}
@@ -41,10 +42,13 @@ An explicit eight-vertex graph supplies all positive cases through
 sections, while a graph isomorphism reduces the negative cases to
 Payan's theorem on cubelike graphs \cite{Payan}.
 
+
 For a group $G$ and $S=S^{-1}\subseteq G\setminus\{1\}$, we join $x$ to
 $y$ in $\Cay(G,S)$ when $x^{-1}y\in S$. In particular, the graph need not
 be connected, as in the question under consideration. We work in ZFC.
-A \emph{section} of $G$ means a quotient $H/N$ of a subgroup $H\leq G$.
+A \emph{section} of $G$ means a quotient $H/N$ of a subgroup $H\leq G$
+by a normal subgroup $N\trianglelefteq H$. We use the commutator convention
+$[x,y]=xyx^{-1}y^{-1}$.
 
 \begin{theorem}\label{thm:main}
 Let $G$ be a nonabelian group in which $g^4=1$ for all $g\in G$.
@@ -59,6 +63,20 @@ The group $E$ may be infinite. In (1), the connection set can be chosen to
 have at most ten elements.
 \end{theorem}
 
+The section criterion also appears in the public Lean development
+\cite{CayleyExpanded}, conditional on three mathematical inputs, including
+a finite structural classification. That development verifies the same
+dihedral witness used below and the transfer through sections. Our proof
+establishes the structural implication directly for arbitrary groups,
+without a finite classification or a local-finiteness theorem, and gives
+a connection set of uniformly bounded size. Goldstone and Weld
+\cite{GoldstoneWeld} characterized the same quaternionic family by a
+different property, namely that inversion preserves every undirected
+Cayley graph. The final direct-product splitting also follows from
+McCabe and Weld \cite[Proposition~4.10]{McCabeWeld} once centrality of
+involutions and a common square for elements of order four have been
+established. We include that step to keep the argument self-contained.
+
 Put $D_8=\langle r,s\mid r^4=s^2=1,\ srs=r^{-1}\rangle$ and
 $S_0=\{r^2,s,rs\}$. These are three involutions. With vertices ordered as
 $1,r,r^2,r^3,s,rs,r^2s,r^3s$, respectively, the assignment
@@ -67,7 +85,9 @@ $1,r,r^2,r^3,s,rs,r^2s,r^3s$, respectively, the assignment
 \]
 is a proper three-coloring of $\Cay(D_8,S_0)$. The vertices
 $1,r^2,r^2s,r,rs,1$ form a five-cycle. Hence the graph has chromatic
-number three; it is the eight-vertex Wagner graph.
+number three; it is the eight-vertex Wagner graph. This concrete
+connection set and its three-chromaticity are also verified in
+\cite{CayleyExpanded}.
 
 \Needspace{10\baselineskip}
 \begin{lemma}\label{lem:lift}
@@ -122,12 +142,13 @@ $[x,y]^2=[x^2,y]=1$.
 Take noncommuting $x,y$ and write
 $a=x^2$, $b=y^2$, $c=[x,y]$, $C=\langle a,b,c\rangle$,
 $H=\langle x,y\rangle$. Here $C$ is a central elementary abelian
-two-group, $c\ne1$, and $H/C\cong C_2^2$: the cosets $xC$ and $yC$
-are nontrivial and distinct, since otherwise $x$ and $y$ would
-commute. If $a\ne c$, there is a linear functional
+two-group, $c\ne1$, and $H/C\cong C_2^2$: the commuting involutions $xC$ and $yC$ generate
+the quotient, and they are nontrivial and distinct, since otherwise
+$x$ and $y$ would commute. If $a\ne c$, there is a linear functional
 $\ell:C\to C_2$ with $\ell(c)=1$ and $\ell(a)=0$; the same holds
 with $b$ in place of $a$ if $b\ne c$. The quotient
-$H/\ker\ell$ has order eight, nontrivial commutator, and a
+$H/\ker\ell$ is well-defined because $\ker\ell\leq C\leq Z(H)$.
+It has order eight, nontrivial commutator, and a
 noncentral involution (the image of $x$ or $y$). It is $D_8$.
 Consequently every noncommuting pair satisfies
 \begin{equation}\label{eq:pairs}
@@ -142,7 +163,8 @@ acts on $K$ by independent sign changes of $i$ and $j$; all four such
 automorphisms are inner in $K$. Hence $G=K C_G(K)$.
 If $h\in C_G(K)$, the pair $ih,j$ does not commute. Applying
 \eqref{eq:pairs} yields $(ih)^2=z=i^2$, so $h^2=1$.
-Thus $C_G(K)$ is elementary abelian (indeed central in $G$), and
+Thus $C_G(K)$ is elementary abelian. Since it commutes with $K$ and
+$G=K C_G(K)$, it is central in $G$. Moreover,
 $K\cap C_G(K)=\langle z\rangle$. Choose a vector-space complement
 $E$ to $\langle z\rangle$ in $C_G(K)$. It follows that
 $G=K\times E\cong Q_8\times E$.
@@ -172,8 +194,9 @@ of their difference has quotient coordinate $u+v$, while its sign
 may be modified by the multiplication cocycle. Membership in $S$
 ignores that sign. If they have the same $u$ coordinate, the
 quaternion difference is exactly $z^{\epsilon+\eta}$.
-Thus two vertices are adjacent precisely when the sum of their
-images under $\phi$ lies in $T$, proving the claim.
+In the $E$ coordinate, the difference is the sum because $E$ has
+exponent two. Thus two vertices are adjacent precisely when the sum of
+their images under $\phi$ lies in $T$, proving the claim.
 \end{proof}
 
 Payan's theorem says that a finite cubelike graph cannot have
@@ -188,45 +211,35 @@ cubelike graph, contradicting Payan. Combining this with
 Lemmas~\ref{lem:lift} and \ref{lem:structure} proves
 Theorem~\ref{thm:main}.
 
-\section{Computational verification and supporting files}
+\section{Formal verification}
 
-The accompanying packet includes the Python
-script \texttt{verify\_small.py}. It checks the eight-vertex dihedral witness
-and the quaternion-to-cubelike coordinate correspondence on inverse orbits
-for $Q_8\times C_2^r$, $0\leq r\leq3$. It also enumerates all inverse-closed
-connection sets for $r=0,1$. Of the $16$ sets for $Q_8$, $8$ give bipartite
-graphs and $8$ give graphs that are not three-colorable. Of the $512$ sets for
-$Q_8\times C_2$, the corresponding counts are $113$ and $399$. These finite
-checks support the constructions; the proof of Theorem~\ref{thm:main} is the
-argument above.
+Theorem~\ref{thm:main} has a complete formalization in Lean~4.29.0 with
+Mathlib, including the infinite case and the ten-element bound.
+The checked result is
+\[
+ \texttt{KrebsSankarQ53.q53\_full\_classification}.
+\]
+Its hypotheses agree with Theorem~\ref{thm:main}.
+The dependency audit reports only the standard axioms
+\texttt{propext}, \texttt{Classical.choice}, and
+\texttt{Quot.sound}.\footnote{The source, pinned dependencies, audit,
+and verification record are available at
+\url{https://github.com/alexgocardinal/krebs-sankar-q53}.
+Proof revision \texttt{0866eb8} passed
+\href{https://github.com/alexgocardinal/krebs-sankar-q53/actions/runs/39317175310}
+{the build and axiom audit}.
+The combinatorial winding lemmas used in the formal cubelike obstruction
+are adapted from Gal\'an's MIT-licensed development \cite{Galan};
+the source retains the full license notice.}
+The formal proof establishes the cubelike obstruction directly, whereas
+the proof above invokes Payan's theorem.
 
-The paper, source files, and Lean development are deposited at
-\url{https://github.com/alexgocardinal/krebs-sankar-q53}
-(verified section-lifting commit \texttt{bb11b9c}). The repository is currently
-private and will become readable to the public when released. The
-Lean 4.29.0 audit checks the concrete dihedral witness and the implication
-from a $D_8$ section to a three-chromatic Cayley graph, with a finite
-connection set of at most ten elements, for arbitrary groups. The packet
-does not contain a complete Lean formalization of
-Theorem~\ref{thm:main}, and we make no claim of full machine verification.
-The separate development
-\cite{CayleyExpanded} proves a conditional section criterion. Its successful
-compilation would not, by itself, certify every assertion of the present
-manuscript.
+Independent Python checks verify the dihedral witness and the
+quaternion-to-cubelike coordinate correspondence for
+$Q_8\times C_2^r$, $0\leq r\leq3$. Exhaustive searches over all
+inverse-closed connection sets on $Q_8$ and $Q_8\times C_2$ find no
+three-chromatic examples. These checks supplement the proofs.
 
-\medskip\noindent
-\textbf{Prior work.}
-Goldstone and Weld characterized the nonabelian graphically abelian
-groups as $Q_8\times E$ \cite{GoldstoneWeld}. A public Lean development
-\cite{CayleyExpanded} states a related $D_8$-section criterion conditional
-on three mathematical inputs, including a finite no-$D_8$ structural
-classification, and contains the same concrete dihedral witness.
-The present proof gives the structural argument directly for arbitrary
-groups, without the finite classification or a local-finiteness theorem.
-The connection sets in Theorem~\ref{thm:main} need not generate the
-ambient group; the connected version is a separate question.
-
-\clearpage
 \begin{thebibliography}{9}
 \bibitem{KrebsSankar}
 M. Krebs and M. Sankar,
@@ -244,11 +257,24 @@ Discrete Math. \textbf{103} (1992), 271--277.
 R. Goldstone and K. Weld, \emph{Graphically abelian groups},
 Discrete Math. \textbf{310} (2010), 2806--2810.
 
+\bibitem{McCabeWeld}
+J. McCabe and K. Weld, \emph{On automorphisms of Cayley graphs and
+irregular groups}, Australas. J. Combin. \textbf{51} (2011), 157--173.
+\href{https://ajc.maths.uq.edu.au/pdf/51/ajc_v51_p157.pdf}{Full text}.
+
+\bibitem{Galan}
+S. Gal\'an, \emph{TheoremW.lean}, in
+\emph{chromatic-number-of-the-plane}, software (2026),
+revision \texttt{cb660f3}.
+\href{https://github.com/decalion89/chromatic-number-of-the-plane/blob/cb660f322dce47a773f347d39818ffc46e6ca72c/lean/TheoremW.lean}
+{Source}.
+
 \bibitem{CayleyExpanded}
 \emph{CayleyExpanded: Lean 4 formalization of a section criterion
 for three-chromatic Cayley graphs of exponent-four groups},
-public repository, \url{https://github.com/tysunseven/CayleyExpanded}
-(accessed October 2026).
+public repository (2026), revision \texttt{15bc128}.
+\url{https://github.com/tysunseven/CayleyExpanded}.
 \end{thebibliography}
 
 \end{document}
+

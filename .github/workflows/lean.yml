@@ -19,6 +19,8 @@ jobs:
         with:
           build: true
           use-mathlib-cache: true
+          # Avoid duplicating Mathlib's cache in a large GitHub cache archive.
+          use-github-cache: false
           axiom-audit: true
       - name: Audit named results
         run: lake env lean Audit.lean

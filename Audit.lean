@@ -2,8 +2,8 @@ import KrebsSankarQ53
 
 /-!
 Run `lake env lean Audit.lean` after a successful `lake build`.
-This audit covers the finite witness and the general coloring lemmas;
-it is not a classification audit.
+This audit covers the full classification, its structural and graph inputs,
+and the inverse-closed ten-element witness.
 -/
 
 #check KrebsSankarQ53.concrete_cayley_witness
@@ -244,5 +244,91 @@ it is not a classification audit.
 
 #check KrebsSankarQ53.pair_images_commute_and_square_one
 #print axioms KrebsSankarQ53.pair_images_commute_and_square_one
+
+#check KrebsSankarQ53.no_d8_section_squarePairSubgroup_normal
+#print axioms KrebsSankarQ53.no_d8_section_squarePairSubgroup_normal
+
+#check KrebsSankarQ53.no_d8_section_commutator_mem_squarePair
+#print axioms KrebsSankarQ53.no_d8_section_commutator_mem_squarePair
+
+#check KrebsSankarQ53.no_d8_section_noncommuting_commutator_eq_square
+#print axioms KrebsSankarQ53.no_d8_section_noncommuting_commutator_eq_square
+
+#check KrebsSankarQ53.commutatorTerm_reverse
+#print axioms KrebsSankarQ53.commutatorTerm_reverse
+
+#check KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
+#print axioms KrebsSankarQ53.no_d8_section_noncommuting_pair_square_identity
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_square_one
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_square_one
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_iff_involution
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_iff_involution
+
+#check KrebsSankarQ53.no_d8_section_pair_centralizer_is_central
+#print axioms KrebsSankarQ53.no_d8_section_pair_centralizer_is_central
+
+#check KrebsSankarQ53.no_d8_section_all_squares_one_or_pair_square
+#print axioms KrebsSankarQ53.no_d8_section_all_squares_one_or_pair_square
+
+#check KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
+#print axioms KrebsSankarQ53.no_d8_section_all_commutators_one_or_pair_square
+
+#check KrebsSankarQ53.q8PairHom
+#print axioms KrebsSankarQ53.q8PairHom
+
+#check KrebsSankarQ53.q8PairHom_injective
+#print axioms KrebsSankarQ53.q8PairHom_injective
+
+#check KrebsSankarQ53.no_d8_section_pair_conjugation
+#print axioms KrebsSankarQ53.no_d8_section_pair_conjugation
+
+#check KrebsSankarQ53.no_d8_section_contains_quaternion
+#print axioms KrebsSankarQ53.no_d8_section_contains_quaternion
+
+#check KrebsSankarQ53.no_d8_section_pair_correction
+#print axioms KrebsSankarQ53.no_d8_section_pair_correction
+
+#check KrebsSankarQ53.no_d8_section_quaternion_center_cover
+#print axioms KrebsSankarQ53.no_d8_section_quaternion_center_cover
+
+#check KrebsSankarQ53.CubelikeWinding.exponent_two_closed_walk_even
+#print axioms KrebsSankarQ53.CubelikeWinding.exponent_two_closed_walk_even
+
+#check KrebsSankarQ53.CubelikeWinding.exponent_two_closure_two_coloring
+#print axioms KrebsSankarQ53.CubelikeWinding.exponent_two_closure_two_coloring
+
+#check KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
+#print axioms KrebsSankarQ53.elementaryAbelian_cayley_three_implies_two
+
+#check KrebsSankarQ53.q8Coordinates
+#print axioms KrebsSankarQ53.q8Coordinates
+
+#check KrebsSankarQ53.q8Coordinates_difference
+#print axioms KrebsSankarQ53.q8Coordinates_difference
+
+#check KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
+#print axioms KrebsSankarQ53.quaternionProduct_cayley_three_implies_two
+
+#check KrebsSankarQ53.elementaryAbelian_exists_complement
+#print axioms KrebsSankarQ53.elementaryAbelian_exists_complement
+
+#check KrebsSankarQ53.no_d8_section_quaternion_product
+#print axioms KrebsSankarQ53.no_d8_section_quaternion_product
+
 #check KrebsSankarQ53.pair_image_product_square_one
 #print axioms KrebsSankarQ53.pair_image_product_square_one
+
+#check KrebsSankarQ53.d8_section_exact_three_card_le_ten
+#print axioms KrebsSankarQ53.d8_section_exact_three_card_le_ten
+#check KrebsSankarQ53.quaternionElementaryProduct_no_exact_three
+#print axioms KrebsSankarQ53.quaternionElementaryProduct_no_exact_three
+#check KrebsSankarQ53.q53_full_classification
+#print KrebsSankarQ53.q53_full_classification
+#print axioms KrebsSankarQ53.q53_full_classification
+
+#print KrebsSankarQ53.ExponentFour
+#print KrebsSankarQ53.IsExactThreeCayleyConnection
+#print KrebsSankarQ53.HasExactThreeCayley
+#print KrebsSankarQ53.IsQuaternionElementaryProduct

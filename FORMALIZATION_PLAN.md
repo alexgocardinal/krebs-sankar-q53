@@ -1,63 +1,70 @@
-# What remains to formalize
+# Formalization map and acceptance checks
 
-The finite witness and D8-section implication have now been compiled and
-audited on the author's Mac with Lean 4.29.0. The audit reports only standard
-Lean foundations for `d8_section_has_three_chromatic_cayley`. This plan is
-not a machine-checked classification proof.
-The manuscript's direct structural proof avoids
-Sanov's theorem and the finite structural classification assumed by the
-separate CayleyExpanded project.
+The exact target classification has been formalized in
+`KrebsSankarQ53.q53_full_classification`. See `LEAN_VERIFICATION.md` for
+the successful source commit, GitHub Actions run, and dependency audit.
 
-## Target statement
+## Scope
 
-For every nonabelian group G with g^4 = 1 for every element, prove equivalence
-of: an inverse-closed identity-free connection set with chromatic number
-exactly three; a D8 section; and failure to be isomorphic to Q8 × E for any
-elementary abelian two-group E. Allow infinite groups and disconnected graphs.
-Also prove existence of a connection set of cardinality at most ten in the
-positive cases. A finite-graph theorem alone is not the target.
+For any nonabelian group G with every fourth power equal to one:
 
-## Direct proof modules
+- An inverse-closed, identity-free three-chromatic Cayley graph exists iff
+  G has a D8 section.
+- These conditions hold iff G is not isomorphic to Q8 × E for an arbitrary
+  elementary abelian two-group E.
+- Every positive case has such a finite connection set of cardinality at
+  most ten.
 
-1. Definitions: right Cayley graph, exact three-chromaticity, sections,
-   exponent dividing four, quaternion and dihedral models, and elementary
-   abelian two-groups. Interpret E as an arbitrary F2-vector space, not only
-   a finite product.
-2. D8 witness: completed in `Witness.lean` and integrated with the general
-   group definition in `D8Group.lean`.
-3. Section lifting: completed in `CayleyCore.lean`, `CycleLift.lean`,
-   `QuotientLift.lean`, and `SubgroupLift.lean`, including finite size ≤ 10.
-4. Structural theorem: absence of a D8 section implies central involutions;
-   central squares and commutators; the noncommuting-pair square identity;
-   a quaternion subgroup; splitting off a central elementary abelian factor.
-   The complement argument uses classical choice in the infinite case.
-5. Quaternionic obstruction: prove the coordinate graph isomorphism; prove
-   or import a fully formalized cubelike obstruction; handle arbitrary E by
-   the finite odd-cycle reduction.
-6. Assemble the final equivalences and at-most-ten bound. Every imported
-   result must have a checked proof or be explicitly disclosed as an extra
-   assumption. A citation in prose is not a Lean proof.
+G and E may be infinite, and the graphs may be disconnected. The obstruction
+allows arbitrary connection sets. E is represented by a commutative group
+whose elements square to one; the complement construction supplies the
+equivalent F2-vector-space structure without a finite-dimensionality assumption.
+
+## Completed proof stages
+
+1. Concrete D8 witness and section lifting: the original witness, quotient,
+   subgroup, and five-step modules.
+2. No-D8 central involutions, squares, and commutators: the original structural
+   modules through `PairCore`, `PairRelations`, and `PairCentralNormal`.
+3. Pair square identity: `PairSquareIdentity`, using the quotient by {1,x²}.
+4. Quaternion subgroup and centralizer: `QuaternionPair`,
+   `QuaternionCentralizer`, and `QuaternionCover`.
+5. Infinite central complement and product isomorphism:
+   `ElementaryComplement` and `NoD8Classification`.
+6. Cubelike obstruction for arbitrary exponent-two groups and connection
+   sets: `CubelikeWinding` and `CubelikeObstruction`.
+7. Explicit Q8 × E coordinate transfer: `QuaternionCubelike`.
+8. Exact equivalences and inverse-closed ten-element witness:
+   `Classification`.
 
 ## Acceptance checks
 
-- Pin Lean in lean-toolchain and Mathlib in lake-manifest.json.
-- Make the default library target import every proof module and final theorem.
-- Run lake exe cache get, lake build, and the final theorem's Audit.lean.
-- In Audit.lean, import the final module and use #check and #print on the final
-  theorem, then #print axioms with its actual fully qualified name.
-- Review the quantified statement and every hypothesis. A theorem accepting
-  a structure containing the desired result is still conditional.
-- Inspect dependencies for sorryAx and unproved custom axioms; inspect sources
-  for sorry, admit, axiom and opaque declarations without proved content.
-  Text search is an aid, not sufficient evidence by itself.
-- Disclose any native computation trust assumptions if used. Prefer ordinary
-  kernel-checked proof terms for the advertised complete theorem.
-- Rebuild a fresh checkout and record the exact commit and commands.
+- Lean is pinned to 4.29.0; Mathlib and all transitive revisions are locked
+  in `lake-manifest.json`.
+- The default library target imports all proof modules and the final theorem.
+- A fresh GitHub checkout successfully retrieved Mathlib's cache and ran
+  `lake build`, the allowlist axiom audit, and `lake env lean Audit.lean`.
+- The audit prints the actual final theorem and its definitions and hypotheses.
+- The final theorem depends only on
+  `[propext, Classical.choice, Quot.sound]`.
+- No proof placeholders, unproved custom axioms, or native computation axioms
+  are used. Finite coordinate verifications use ordinary kernel-checked
+  `decide`.
+- The third-party MIT notice and exact source revision are retained.
 
-## Third-party project
+## Review status
 
-https://github.com/tysunseven/CayleyExpanded
-Its README lists an abelian obstruction, finite no-D8 classification, and
-Sanov finiteness theorem as external inputs. Inspect its license and preserve
-attribution before reuse. Compiling it can check the conditional result;
-it does not complete this direct manuscript's formalization.
+No Lean proof gap remains in the exact classification at the checked source
+revision. PR #3 records the completed implementation. The manuscript now
+states the full verification scope and acknowledges the overlapping literature.
+See `PUBLICATION_PRIORITY.md` for the bounded priority assessment.
+
+## Third-party proof source
+
+The combinatorial winding lemmas are adapted from Sergi Galán's MIT-licensed
+`decalion89/chromatic-number-of-the-plane/lean/TheoremW.lean`, revision
+`cb660f322dce47a773f347d39818ffc46e6ca72c`. The source used Lean 4.34.1;
+the retained lemmas compile under this project's 4.29.0. The averaging and
+`TheoremWInf` modules are not imported. Neither CayleyExpanded nor any
+external classification or cubelike theorem is assumed.
+

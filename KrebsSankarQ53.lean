@@ -44,8 +44,17 @@ import KrebsSankarQ53.PairRelations
 import KrebsSankarQ53.PairCentralSubgroup
 import KrebsSankarQ53.PairCentralNormal
 import KrebsSankarQ53.PairQuotientGenerators
+import KrebsSankarQ53.PairSquareIdentity
+import KrebsSankarQ53.QuaternionCentralizer
+import KrebsSankarQ53.QuaternionPair
+import KrebsSankarQ53.QuaternionCover
+import KrebsSankarQ53.ElementaryComplement
+import KrebsSankarQ53.NoD8Classification
+import KrebsSankarQ53.CubelikeObstruction
+import KrebsSankarQ53.QuaternionCubelike
+import KrebsSankarQ53.Classification
 
 /-!
-The library imports the finite dihedral witness and general Cayley coloring
-lemmas. The classification theorem has not been formalized here.
+The library imports every proof module, including the full classification
+and its finite inverse-closed connection-set bound in Classification.lean.
 -/
