@@ -332,3 +332,11 @@ and the inverse-closed ten-element witness.
 #print KrebsSankarQ53.IsExactThreeCayleyConnection
 #print KrebsSankarQ53.HasExactThreeCayley
 #print KrebsSankarQ53.IsQuaternionElementaryProduct
+
+#check KrebsSankarQ53.d8_quotient_exact_three_card_le_five
+#print axioms KrebsSankarQ53.d8_quotient_exact_three_card_le_five
+#check KrebsSankarQ53.d8_section_exact_three_card_le_five
+#print axioms KrebsSankarQ53.d8_section_exact_three_card_le_five
+#check KrebsSankarQ53.q53_full_classification_five
+#print KrebsSankarQ53.q53_full_classification_five
+#print axioms KrebsSankarQ53.q53_full_classification_five

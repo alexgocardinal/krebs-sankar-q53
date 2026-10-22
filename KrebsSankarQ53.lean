@@ -58,3 +58,5 @@ import KrebsSankarQ53.Classification
 The library imports every proof module, including the full classification
 and its finite inverse-closed connection-set bound in Classification.lean.
 -/
+
+import KrebsSankarQ53.FiveElementLift
